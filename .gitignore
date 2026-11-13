@@ -1,0 +1,26 @@
+# Virtual environments and dependencies
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Generated build files
+build/
+dist/
+*.egg-info/
+
+# IDE settings (optional)
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
