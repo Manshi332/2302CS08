@@ -1,0 +1,30 @@
+{
+  "format": "utxolab-snapshot-v1",
+  "state": {
+    "applied": [
+      "c383deaa55988be356290bb4709e5663a668d8f38f74d01ef647a9470b70f689",
+      "88e4b7d67eb9886fec11fe09bdcd2339476263ae1d28494097bd8dc5ca3a4a90"
+    ],
+    "fees": 0,
+    "issued": 110,
+    "network_id": "course-testnet",
+    "spent": {},
+    "utxos": {
+      "88e4b7d67eb9886fec11fe09bdcd2339476263ae1d28494097bd8dc5ca3a4a90:0": {
+        "lock": {
+          "pkh": "7394de6d32d4cd4f348e363bb7f1b63b269bb9d7",
+          "type": "p2pkh"
+        },
+        "value": 70
+      },
+      "c383deaa55988be356290bb4709e5663a668d8f38f74d01ef647a9470b70f689:0": {
+        "lock": {
+          "pkh": "7394de6d32d4cd4f348e363bb7f1b63b269bb9d7",
+          "type": "p2pkh"
+        },
+        "value": 40
+      }
+    }
+  },
+  "state_sha256": "97aa04428d6d6bea3e8e80fcbc3883e51ea4fdb422478a2e763468e7fc2d58fb"
+}

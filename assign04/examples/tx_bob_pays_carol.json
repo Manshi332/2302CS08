@@ -1,0 +1,35 @@
+{
+  "body": {
+    "version": 1,
+    "network_id": "course-testnet",
+    "inputs": [
+      {
+        "txid": "5e275304d409e52f95a3e359e78c3aaab1a4b5480a727a431365364f77d15a1b",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "value": 30,
+        "lock": {
+          "type": "p2pkh",
+          "pkh": "8b2d6fd5aba502772fb1cb94363e859475347c1f"
+        }
+      },
+      {
+        "value": 54,
+        "lock": {
+          "type": "p2pkh",
+          "pkh": "87d729601b84e086e3f0a7c89ed6da46e0045573"
+        }
+      }
+    ],
+    "memo": ""
+  },
+  "witnesses": [
+    {
+      "public_key": "4ce544a9d5c79e1677c394b7105247a0d2e1964ca17dd40d517afe3b2f4ae792",
+      "signature": "1e902d36efbd4100932f4a7469ed78f4c8141d4acaf07bf5d5dd60657b333de84bebfcdbe5874b8b938f4d8ff5f12c8b2b81405b398ad02aa589e7a2091c9d0c"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "description": "Known-answer vectors. TEST-ONLY seeds: sha256('utxolab-demo-<name>').",
+  "network_id": "course-testnet",
+  "alice_seed": "6279c4f04485d20873b8bfcc3997a5304c8a6d0d78cc483f1d658823a2a92a83",
+  "alice_address": "mr46LhmstEGnuLZZU45rc7Kq7SFNTXpbkX",
+  "bob_address": "msuDGeEW2rkxuzPjgbEL9VMqG7g5tBi9m7",
+  "txid_domain_hex": "7574786f6c61622f747869642f763100",
+  "sig_domain_hex": "7574786f6c61622f7369672f763100",
+  "tx_alice_pays_bob": {
+    "canonical_body": "{\"inputs\":[{\"index\":0,\"txid\":\"88e4b7d67eb9886fec11fe09bdcd2339476263ae1d28494097bd8dc5ca3a4a90\"},{\"index\":0,\"txid\":\"c383deaa55988be356290bb4709e5663a668d8f38f74d01ef647a9470b70f689\"}],\"memo\":\"\",\"network_id\":\"course-testnet\",\"outputs\":[{\"lock\":{\"pkh\":\"87d729601b84e086e3f0a7c89ed6da46e0045573\",\"type\":\"p2pkh\"},\"value\":85},{\"lock\":{\"pkh\":\"7394de6d32d4cd4f348e363bb7f1b63b269bb9d7\",\"type\":\"p2pkh\"},\"value\":23}],\"version\":1}",
+    "txid": "5e275304d409e52f95a3e359e78c3aaab1a4b5480a727a431365364f77d15a1b",
+    "signing_bytes_sha256": "be905ea65f896b420a1df976fdd95226a1b8f78b2587e4a26994ac3a8df59629",
+    "signed_tx": {
+      "body": {
+        "version": 1,
+        "network_id": "course-testnet",
+        "inputs": [
+          {
+            "txid": "88e4b7d67eb9886fec11fe09bdcd2339476263ae1d28494097bd8dc5ca3a4a90",
+            "index": 0
+          },
+          {
+            "txid": "c383deaa55988be356290bb4709e5663a668d8f38f74d01ef647a9470b70f689",
+            "index": 0
+          }
+        ],
+        "outputs": [
+          {
+            "value": 85,
+            "lock": {
+              "type": "p2pkh",
+              "pkh": "87d729601b84e086e3f0a7c89ed6da46e0045573"
+            }
+          },
+          {
+            "value": 23,
+            "lock": {
+              "type": "p2pkh",
+              "pkh": "7394de6d32d4cd4f348e363bb7f1b63b269bb9d7"
+            }
+          }
+        ],
+        "memo": ""
+      },
+      "witnesses": [
+        {
+          "public_key": "7c099ac69f1a30c1d6e3f3465db3f52a20cfb34c8d466e18b15c4d21b5b900bf",
+          "signature": "6408fc5d3a40ac6c39b575afe3ea066f1b3a84c260c1ed340997d9ea819201f7b15f8e8c28472290552f494f6bce487518c75ad1b0006c3b6122a51d9993660d"
+        },
+        {
+          "public_key": "7c099ac69f1a30c1d6e3f3465db3f52a20cfb34c8d466e18b15c4d21b5b900bf",
+          "signature": "6408fc5d3a40ac6c39b575afe3ea066f1b3a84c260c1ed340997d9ea819201f7b15f8e8c28472290552f494f6bce487518c75ad1b0006c3b6122a51d9993660d"
+        }
+      ]
+    }
+  }
+}

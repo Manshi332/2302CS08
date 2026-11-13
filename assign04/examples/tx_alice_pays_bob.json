@@ -1,0 +1,43 @@
+{
+  "body": {
+    "version": 1,
+    "network_id": "course-testnet",
+    "inputs": [
+      {
+        "txid": "88e4b7d67eb9886fec11fe09bdcd2339476263ae1d28494097bd8dc5ca3a4a90",
+        "index": 0
+      },
+      {
+        "txid": "c383deaa55988be356290bb4709e5663a668d8f38f74d01ef647a9470b70f689",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "value": 85,
+        "lock": {
+          "type": "p2pkh",
+          "pkh": "87d729601b84e086e3f0a7c89ed6da46e0045573"
+        }
+      },
+      {
+        "value": 23,
+        "lock": {
+          "type": "p2pkh",
+          "pkh": "7394de6d32d4cd4f348e363bb7f1b63b269bb9d7"
+        }
+      }
+    ],
+    "memo": ""
+  },
+  "witnesses": [
+    {
+      "public_key": "7c099ac69f1a30c1d6e3f3465db3f52a20cfb34c8d466e18b15c4d21b5b900bf",
+      "signature": "6408fc5d3a40ac6c39b575afe3ea066f1b3a84c260c1ed340997d9ea819201f7b15f8e8c28472290552f494f6bce487518c75ad1b0006c3b6122a51d9993660d"
+    },
+    {
+      "public_key": "7c099ac69f1a30c1d6e3f3465db3f52a20cfb34c8d466e18b15c4d21b5b900bf",
+      "signature": "6408fc5d3a40ac6c39b575afe3ea066f1b3a84c260c1ed340997d9ea819201f7b15f8e8c28472290552f494f6bce487518c75ad1b0006c3b6122a51d9993660d"
+    }
+  ]
+}

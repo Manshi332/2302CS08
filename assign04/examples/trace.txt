@@ -1,0 +1,81 @@
+utxolab trace: Alice, Bob, Carol, Mallory on course-testnet
+========================================================================
+
+[0] genesis issuance (the only way value enters the system)
+    issued 40 to Alice  outpoint c383deaa:0
+    issued 70 to Alice  outpoint 88e4b7d6:0
+    Alice balance = 110   state 97aa04428d6d6bea
+
+[1] Alice pays Bob 85 with fee 2 (spends 40 and 70, change 23)
+    tx 5e275304d409  inputs [88e4b7d6:0, c383deaa:0] outputs [85->Bob, 23->Alice]
+    ACCEPTED  fee=2  created=['5e275304:0', '5e275304:1']
+    balances: Alice=23 Bob=85 fees burned=2
+
+[2] Same signed transaction submitted again
+    tx 5e275304d409  inputs [88e4b7d6:0, c383deaa:0] outputs [85->Bob, 23->Alice]
+    REJECTED  code=duplicate_transaction
+    reason:   transaction 5e275304 was already applied; resubmitting it would not pay anyone twice
+    ledger state unchanged: yes
+    Bob balance is still 85 (he was not paid twice)
+
+[3] Spend an output that never existed
+    tx cc9a2609a53c  inputs [abababab:0] outputs [10->Bob]
+    REJECTED  code=input_not_found
+    reason:   outpoint abababab:0 does not exist
+    ledger state unchanged: yes
+
+[4] Same outpoint listed twice in one transaction (would double the 85)
+    tx ca861cf79eb3  inputs [5e275304:0, 5e275304:0] outputs [170->Carol]
+    REJECTED  code=duplicate_input
+    reason:   outpoint 5e275304:0 is listed more than once in the same transaction
+    ledger state unchanged: yes
+
+[5] Alice tries to spend the 70-unit output that step 1 consumed
+    tx ccdee95dbd32  inputs [88e4b7d6:0] outputs [60->Carol]
+    REJECTED  code=input_already_spent
+    reason:   outpoint 88e4b7d6:0 was already spent by transaction 5e275304
+    ledger state unchanged: yes
+
+[6] Transaction edited after signing (Carol's amount 30 -> 31)
+    REJECTED  code=bad_signature
+    reason:   input 0 (5e275304:0): signature does not verify over this transaction
+    ledger state unchanged: yes
+
+[7] Mallory signs a spend of Bob's output with her own key
+    tx 6c671b340106  inputs [5e275304:0] outputs [84->Mallory]
+    REJECTED  code=pubkey_hash_mismatch
+    reason:   input 0 (5e275304:0): public key does not hash to the output's locking pubkey hash
+    ledger state unchanged: yes
+
+[8] Negative output value (-5)
+    REJECTED  code=bad_output_value
+    reason:   output value is negative (-5)
+    ledger state unchanged: yes
+
+[9] Two outputs of 9007199254740991 each: their sum overflows the safe maximum
+    tx 398894f6afa8  inputs [5e275304:0] outputs [9007199254740991->Carol, 9007199254740991->Carol]
+    REJECTED  code=value_overflow
+    reason:   sum of output values exceeds 9007199254740991
+    ledger state unchanged: yes
+
+[10] Bob pays 60 but claims 26 change from an 85 coin (60+26=86 > 85)
+    tx 8dd4f9537deb  inputs [5e275304:0] outputs [60->Carol, 26->Bob]
+    REJECTED  code=outputs_exceed_inputs
+    reason:   outputs total 86 but inputs total only 85; 1 unit(s) would be created from nothing
+    ledger state unchanged: yes
+
+[11] Transaction without any witness (no signature at all)
+    tx 1fb41fac3ba1  inputs [5e275304:0] outputs [30->Carol, 54->Bob]
+    REJECTED  code=bad_witness
+    reason:   0 witness(es) for 1 input(s); need exactly one per input
+    ledger state unchanged: yes
+
+[12] Bob pays Carol 30 with fee 1 (spends 85, change 54)
+    tx 1fb41fac3ba1  inputs [5e275304:0] outputs [30->Carol, 54->Bob]
+    ACCEPTED  fee=1  created=['1fb41fac:0', '1fb41fac:1']
+
+========================================================================
+final balances: Alice=23  Bob=54  Carol=30
+issued=110  unspent=107  fees=3  (issued == unspent + fees: True)
+reload check: saved snapshot reloads to the same state hash: True
+final state hash aab460cc6ca18829ec2e6d957230423fecd59912cac795f31ae9fbd3bc12764d
