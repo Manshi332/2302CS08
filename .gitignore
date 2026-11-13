@@ -1,9 +1,26 @@
-__pycache__/
-*.pyc
+# Virtual environments
 .venv/
 venv/
-*.egg-info/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build files
 build/
 dist/
-.pytest_cache/
-*.bin
+*.egg-info/
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
