@@ -1,0 +1,4 @@
+# All elliptic-curve math and randomness come from this maintained library.
+cryptography>=42
+# pytest is needed only to run the tests.
+pytest>=8.0

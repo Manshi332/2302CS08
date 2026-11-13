@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+# NEVER commit private keys, even test-only ones.
+dev_private_key*.json
+*.key
+state.json

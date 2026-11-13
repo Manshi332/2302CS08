@@ -1,0 +1,63 @@
+{
+  "note": "TEST-ONLY seeds = SHA-256 of the quoted strings. Ed25519 is deterministic.",
+  "network_id": "course-testnet",
+  "alice_seed_sha256_of": "walletlab test-only alice",
+  "alice_public_key": "0059215ea7c26035dc2a748324e784b994723e72adb5d94c7f8a0e64bd5dde29",
+  "alice_address": "mjX8sCthdoF8Xj36VvX8ZLoMWUVr1kBtmr",
+  "bob_public_key": "8250478ef74403dd46ad30db79be31bfd010ccd2e8bd2826f01949b71dac9fa3",
+  "bob_address": "mpDUyedSaFeYsfF4Z9iP9LQVSLadQWaRsm",
+  "canonical_transaction": "{\"amount_units\":1250000,\"memo_hash\":\"b300e20c1c69562a3648bb22067ab521623feedc9d002b5d669618944dbfd620\",\"network_id\":\"course-testnet\",\"nonce\":7,\"recipient\":\"mpDUyedSaFeYsfF4Z9iP9LQVSLadQWaRsm\",\"sender\":\"mjX8sCthdoF8Xj36VvX8ZLoMWUVr1kBtmr\",\"version\":1}",
+  "domain_tag_hex": "77616c6c65746c61622f74782f763100",
+  "signing_bytes_sha256": "f3150e379702f4bdc8da32058a1f3d8a96cbde4e848c8b9ddb07e8b67f08079c",
+  "signature": "92b2bfa50fc44546b8cd0b5d35b294d170a55eec23fceafa493c3b36198331fc83dc96d594de4a4560cf41681fec6da14f93e22353565ea425c6d7e6bf9a250d",
+  "must_verify": [
+    "examples/signed_tx.json",
+    "examples/signed_tx_reordered.json"
+  ],
+  "must_reject": [
+    {
+      "file": "examples/bad/amount_changed.json",
+      "reject_contains": "does not verify"
+    },
+    {
+      "file": "examples/bad/nonce_changed.json",
+      "reject_contains": "does not verify"
+    },
+    {
+      "file": "examples/bad/recipient_changed.json",
+      "reject_contains": "does not verify"
+    },
+    {
+      "file": "examples/bad/memo_changed.json",
+      "reject_contains": "does not verify"
+    },
+    {
+      "file": "examples/bad/wrong_network.json",
+      "reject_contains": "wrong network"
+    },
+    {
+      "file": "examples/bad/wrong_signer.json",
+      "reject_contains": "wrong signer"
+    },
+    {
+      "file": "examples/bad/bad_checksum_address.json",
+      "reject_contains": "checksum"
+    },
+    {
+      "file": "examples/bad/signature_short.json",
+      "reject_contains": "malformed signature"
+    },
+    {
+      "file": "examples/bad/signature_uppercase.json",
+      "reject_contains": "malformed signature"
+    },
+    {
+      "file": "examples/bad/signature_non_canonical_S.json",
+      "reject_contains": "non-canonical signature"
+    },
+    {
+      "file": "examples/bad/extra_field.json",
+      "reject_contains": "unknown field"
+    }
+  ]
+}

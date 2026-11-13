@@ -1,0 +1,13 @@
+{
+  "transaction": {
+    "version": 1,
+    "network_id": "course-testnet",
+    "sender": "mp942Jo6HZkfGb1nWuWHowvNnrHk81FvpU",
+    "recipient": "mpDUyedSaFeYsfF4Z9iP9LQVSLadQWaRsm",
+    "amount_units": 1250001,
+    "nonce": 7,
+    "memo_hash": "b300e20c1c69562a3648bb22067ab521623feedc9d002b5d669618944dbfd620"
+  },
+  "public_key": "f1abbb33418b0c0a679b9957e88b0c42bc34c77c052dd2ac3e53a8f3a4f8aa30",
+  "signature": "dd16ca95aa37fb94d76ef1b9ad09eb68dc707725069f91dcd543b85a7bb19f941652a42e290e0c1a6f65f11bd87e06bd3fd14c8985416842cbc492c65b3b0c05"
+}
