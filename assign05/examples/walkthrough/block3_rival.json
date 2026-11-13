@@ -1,0 +1,30 @@
+{
+  "header": {
+    "merkle_root": "385b3928a9f8cfde4173f161f5e35a5df8abea5cb5d63d5176916a1ecff40407",
+    "nonce": 16,
+    "prev_hash": "009885239ad5e477e98d754b2f7a3a73ff95affea0df3726ed50571e2b674a6c",
+    "target": "03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "timestamp": 1700001801,
+    "version": 1
+  },
+  "txs": [
+    {
+      "body": {
+        "inputs": [],
+        "memo": "coinbase:3",
+        "network_id": "course-testnet",
+        "outputs": [
+          {
+            "lock": {
+              "pkh": "87d729601b84e086e3f0a7c89ed6da46e0045573",
+              "type": "p2pkh"
+            },
+            "value": 50
+          }
+        ],
+        "version": 1
+      },
+      "witnesses": []
+    }
+  ]
+}

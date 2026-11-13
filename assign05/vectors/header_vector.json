@@ -1,0 +1,14 @@
+{
+  "description": "Genesis block header of ChainParams(bits=8): pins the 112-byte layout and SHA-256d.",
+  "header_hex": "000000010000000000000000000000000000000000000000000000000000000000000000014c5e5ebeda77c2b054b385c05b6e3eb818da7d36102f01c3b3518177873d4c000000006553f10000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000025c",
+  "block_hash": "002d19b2e384dd6a8e41dd0a0cb8eda92cbb327cbff365242c3554179fae94cc",
+  "work": 256,
+  "fields": {
+    "version": 1,
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "merkle_root": "014c5e5ebeda77c2b054b385c05b6e3eb818da7d36102f01c3b3518177873d4c",
+    "timestamp": 1700000000,
+    "target": "00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "nonce": 604
+  }
+}

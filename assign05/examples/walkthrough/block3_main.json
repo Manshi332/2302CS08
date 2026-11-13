@@ -1,0 +1,65 @@
+{
+  "header": {
+    "merkle_root": "3e50d72398eb326c319f2637950551de4f60bc0fbe671aa1b506245a7a59e91a",
+    "nonce": 20,
+    "prev_hash": "009885239ad5e477e98d754b2f7a3a73ff95affea0df3726ed50571e2b674a6c",
+    "target": "03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "timestamp": 1700001800,
+    "version": 1
+  },
+  "txs": [
+    {
+      "body": {
+        "inputs": [],
+        "memo": "coinbase:3",
+        "network_id": "course-testnet",
+        "outputs": [
+          {
+            "lock": {
+              "pkh": "8b2d6fd5aba502772fb1cb94363e859475347c1f",
+              "type": "p2pkh"
+            },
+            "value": 51
+          }
+        ],
+        "version": 1
+      },
+      "witnesses": []
+    },
+    {
+      "body": {
+        "inputs": [
+          {
+            "index": 0,
+            "txid": "54911235e49d4dca3f924cc15ea18a36aea958fe145f54b027755284bb5b3978"
+          }
+        ],
+        "memo": "",
+        "network_id": "course-testnet",
+        "outputs": [
+          {
+            "lock": {
+              "pkh": "87d729601b84e086e3f0a7c89ed6da46e0045573",
+              "type": "p2pkh"
+            },
+            "value": 30
+          },
+          {
+            "lock": {
+              "pkh": "7394de6d32d4cd4f348e363bb7f1b63b269bb9d7",
+              "type": "p2pkh"
+            },
+            "value": 19
+          }
+        ],
+        "version": 1
+      },
+      "witnesses": [
+        {
+          "public_key": "7c099ac69f1a30c1d6e3f3465db3f52a20cfb34c8d466e18b15c4d21b5b900bf",
+          "signature": "70d840900ee3e65ee0aba2521f2dca939a7c4c09bd8cebee37cbc3d0dceb24e7b6868c5c25e5a164499136e248a0b90959ff09a52f7a8afbd4a053a7253b0f06"
+        }
+      ]
+    }
+  ]
+}
