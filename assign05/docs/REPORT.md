@@ -173,15 +173,15 @@ both nodes end on the same tip and the same UTXO state: True
 
 ## 5. Hash rate and expected vs observed attempts (task 7)
 
-Machine: Python 3.13.12 on Windows AMD64.  Raw SHA-256d header hashing: **726,163 hashes/second** (best of 3 runs of 200,000 hashes).
+Machine: Python 3.13.12 on Windows AMD64.  Raw SHA-256d header hashing: **943,721 hashes/second** (best of 3 runs of 200,000 hashes).
 
 Each target is mined 30 times on different fixed pseudo-headers. At `b` bits one attempt succeeds with probability 2^-b, so attempts are geometrically distributed with mean (and standard deviation) 2^b. The mean of `n` trials therefore has standard error 2^b/sqrt(n); `z` is the distance between observed mean and expectation in those units.
 
 | bits | trials | expected | observed mean | median | min | max | obs/exp | z | time (s) |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 8 | 30 | 256 | 250.2 | 130 | 5 | 2,361 | 0.98 | -0.12 | 0.01 |
-| 12 | 30 | 4,096 | 5,667.4 | 4,368 | 324 | 20,330 | 1.38 | +2.10 | 0.28 |
-| 16 | 30 | 65,536 | 77,378.6 | 54,588 | 274 | 277,687 | 1.18 | +0.99 | 4.97 |
+| 12 | 30 | 4,096 | 5,667.4 | 4,368 | 324 | 20,330 | 1.38 | +2.10 | 0.25 |
+| 16 | 30 | 65,536 | 77,378.6 | 54,588 | 274 | 277,687 | 1.18 | +0.99 | 2.65 |
 
 A single search is very noisy (min and max differ by two orders of magnitude, and the median of a geometric distribution is only about 0.69 x its mean), yet the mean over trials tracks 2^b, with `z` staying within a few standard errors. Each +4 bits multiplies the expected work by 16, which the `expected` and time columns reflect.
 
