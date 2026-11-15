@@ -1,109 +1,312 @@
-# Assignment 2: Merkle Trees and Proofs of Inclusion (`merklelab`)
+# Assignment 2 – Merkle Trees and Proofs of Inclusion
 
-**Course:** Blockchain, Dr. Mayank Agarwal, CSE, IIT Patna (Jul-Dec 2026)
-**Student:** `<YOUR NAME>` | **Roll number:** `<YOUR ROLL NO>`
-**Demo video (YouTube, Unlisted):** `<PASTE YOUTUBE LINK HERE>`
+### Project: MerkleLab
 
-A from-scratch Merkle tree library and CLI (`merkle root | prove | verify | bench`). No Merkle-tree package is used;
-the only primitive is SHA-256 from Python's standard-library `hashlib`.
+**Student:** Manshi Prajapati  
+**Roll Number:** 2302CS08  
+**Course:** Blockchain Engineering – Dr. Mayank Agarwal  
+**Department:** Computer Science and Engineering, IIT Patna  
+**Academic Session:** July–December 2026
 
-| Deliverable | Where |
-|---|---|
-| Library | `src/merklelab/` (`hashing.py`, `tree.py`, `proof.py`, `leafio.py`, `bench.py`) |
-| CLI: `root`, `prove`, `verify` (+ `bench`) | `src/merklelab/cli.py` |
-| Test vectors | `vectors/test_vectors.json` (15 sets), plus published RFC 6962 roots in the tests |
-| Performance report | [`PERFORMANCE.md`](PERFORMANCE.md) |
-| Diagram: exact proof path for five transactions | [`docs/proof_path_5_tx.svg`](docs/proof_path_5_tx.svg) (also `.png`) |
-
-![Proof path for five transactions](docs/proof_path_5_tx.svg)
+**Demo Video:** [Watch Assignment 2 Demonstration](<ASSIGNMENT_02_VIDEO_LINK>)
 
 ---
 
-## 1. Requirements and setup
+## 1. Overview
 
-Python **3.11+**. No runtime dependencies (standard library only); `pytest` is needed only for tests.
+This assignment focuses on implementing a Merkle Tree library and command-line interface from scratch using Python.
 
-```bash
-# from inside this assignment folder
-python3 -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
-pip install -r requirements.txt    # pytest (tests only)
-pip install -e .                   # installs the `merkle` command
+The implementation supports Merkle root calculation, inclusion proof generation, proof verification, and performance benchmarking.
+
+The primary objective is to demonstrate how Merkle Trees provide an efficient and secure way to verify whether a particular transaction or data item belongs to a larger collection without requiring access to the entire dataset.
+
+The implementation uses SHA-256 from Python's standard-library `hashlib` module. No external Merkle Tree package is used.
+
+### Key Features
+
+- Merkle Tree construction from input data.
+- SHA-256-based leaf and internal node hashing.
+- Domain separation using different prefixes for leaves and internal nodes.
+- Merkle root generation.
+- Inclusion proof generation for individual leaves.
+- Independent proof verification using only the leaf, proof, and expected root.
+- Strict proof parsing and validation.
+- Handling of odd numbers of leaves through promotion.
+- Command-line interface for root, prove, verify, and benchmark operations.
+- Performance benchmarking for large datasets.
+- Validation against published RFC 6962 Certificate Transparency test roots.
+
+## 2. Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python 3.11+ | Core implementation |
+| SHA-256 | Cryptographic hashing |
+| `hashlib` | Standard-library hashing implementation |
+| Merkle Trees | Data integrity and inclusion proofs |
+| pytest | Automated testing |
+| JSON | Proof serialization and test vectors |
+
+**Runtime dependencies:** Python standard library only. `pytest` is required for running the tests.
+
+## 3. Project Structure
+
+```text
+assign02/
+│
+├── README.md
+├── PERFORMANCE.md
+├── requirements.txt
+├── pyproject.toml
+├── .gitignore
+│
+├── src/
+│   └── merklelab/
+│       ├── __init__.py
+│       ├── hashing.py
+│       ├── tree.py
+│       ├── proof.py
+│       ├── leafio.py
+│       ├── bench.py
+│       ├── cli.py
+│       └── __main__.py
+│
+├── tests/
+│   ├── test_merklelab.py
+│   └── reference_rfc6962.py
+│
+├── vectors/
+│   └── test_vectors.json
+│
+├── examples/
+│   ├── transactions.txt
+│   ├── proof_index2.json
+│   └── bad_proofs/
+│
+├── docs/
+│   ├── proof_path_5_tx.svg
+│   └── proof_path_5_tx.png
+│
+└── scripts/
+    ├── gen_vectors.py
+    └── make_diagram.py
 ```
 
-Without installing: `PYTHONPATH=src python3 -m merklelab <command>` (PowerShell: `$env:PYTHONPATH="src"`).
+## 4. Requirements and Setup
 
-## 2. The specification (unambiguous)
+### Prerequisites
 
-| Item | Rule |
+- Python 3.11 or later.
+- pip.
+
+### Windows (PowerShell)
+
+Run the following commands from the `assign02` directory:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+pip install -e .
+```
+
+If PowerShell blocks virtual environment activation:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.venv\Scripts\Activate.ps1
+```
+
+### Linux / macOS
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install -e .
+```
+
+The editable installation provides the `merkle` command.
+
+Alternatively, run the package without installing it:
+
+**Linux / macOS:**
+
+```bash
+PYTHONPATH=src python3 -m merklelab <command>
+```
+
+**Windows PowerShell:**
+
+```powershell
+$env:PYTHONPATH="src"
+python -m merklelab <command>
+```
+
+## 5. Merkle Tree Specification
+
+The implementation follows the Merkle Tree construction defined by RFC 6962 (Certificate Transparency).
+
+| Component | Rule |
 |---|---|
-| Hash | SHA-256 |
-| Leaf hash | `Hleaf(data) = SHA-256(0x00 ‖ data)` |
-| Internal node | `Hnode(left, right) = SHA-256(0x01 ‖ left ‖ right)`; both children exactly 32 bytes |
-| Pairing | Level by level, adjacent nodes paired left to right |
-| **Odd count** | The last, unpaired node is **promoted to the next level unchanged** (not duplicated, not re-hashed) |
-| Zero leaves | `root = SHA-256("")` = `e3b0c442...b855` |
-| One leaf | `root = Hleaf(data)` |
-| Next level size | `ceil(n / 2)`; stop when one node remains |
-| Proof order | Siblings are listed **from the leaf level upward** |
-| Direction | `side` is where the **sibling** sits: `"left"` means `h = Hnode(sibling, h)`; `"right"` means `h = Hnode(h, sibling)` |
-| Unpaired node | Has **no sibling** at that level, so it contributes nothing to the proof |
+| Hash Algorithm | SHA-256 |
+| Leaf Hash | `Hleaf(data) = SHA-256(0x00 || data)` |
+| Internal Node Hash | `Hnode(left, right) = SHA-256(0x01 || left || right)` |
+| Child Size | Both child hashes must be exactly 32 bytes |
+| Pairing | Adjacent nodes are paired from left to right, level by level |
+| Odd Number of Nodes | The last unpaired node is promoted unchanged to the next level |
+| Empty Tree | `SHA-256("")` |
+| Single Leaf | `Hleaf(data)` |
+| Next-Level Size | `ceil(n / 2)` |
+| Proof Order | Siblings are listed from the leaf level upward |
 
-This is exactly the tree defined in RFC 6962 (Certificate Transparency). The roots for 0 to 8 leaves match the published CT
-test roots (checked in `tests/test_merklelab.py::test_rfc6962_ct_published_roots`).
+The implementation matches the published Certificate Transparency reference roots for trees containing zero to eight leaves.
 
-**Why domain separation?** Without the `0x00`/`0x01` prefixes, a 64-byte value `left ‖ right` hashes the same as an internal node,
-so an attacker can present an internal node as a "leaf" (second-preimage attack). With prefixes the two hashes live in different
-domains (test: `test_domain_separation_blocks_node_as_leaf`).
+### 5.1 Domain Separation
 
-**Why promote instead of duplicate?** Bitcoin-style duplication makes `[a, b, c]` and `[a, b, c, c]` share a root (CVE-2012-2459).
-With promotion every leaf list has its own root (test: `test_no_duplicate_leaf_ambiguity`).
+Leaf and internal node hashes use different prefixes:
 
-### How the verifier decides (Task 4 and 5)
+- `0x00` for leaf nodes.
+- `0x01` for internal nodes.
 
-`verify(leaf, proof, expected_root)` uses **only** those three inputs. It does **not** trust the proof's own claims about its shape:
+This prevents ambiguity between a leaf and an internal node.
 
-1. From `(leaf_index, tree_size)` it recomputes the exact list of directions the path must have.
-2. It **rejects** a proof with more siblings than that (**unnecessarily long**) or fewer (too short).
-3. It **rejects** any sibling whose `side` differs from the recomputed direction (**invalid / wrong direction**).
-4. It **rejects** an out-of-range `leaf_index` (**wrong index**). An in-range but wrong index changes the expected
-   directions or the folded root, so it fails too.
-5. Only then does it fold the leaf up and compare with the expected root, returning `True` or `False`.
+Without domain separation, a 64-byte value formed by concatenating two child hashes could be confused with an internal node's input.
 
-> **Note on the sheet's example.** The assignment's example proof for `leaf_index: 2, tree_size: 5` shows two siblings.
-> That is illustrative: a leaf in a 5-leaf tree needs **three** (leaf 3 on the right, hash of leaves 0+1 on the left,
-> leaf 4 on the right), as the diagram shows. The JSON shape (`leaf_index`, `tree_size`, `siblings[{side, hash}]`) is identical.
+### 5.2 Handling Odd Numbers of Leaves
 
-## 3. Proof JSON format and validation
+When a level contains an odd number of nodes, the final unpaired node is promoted unchanged.
+
+It is not duplicated or re-hashed.
+
+This avoids the ambiguity associated with duplicate-last-node constructions, where different leaf lists can produce the same Merkle root.
+
+## 6. Merkle Proof Generation and Verification
+
+A Merkle proof allows a verifier to check whether a particular leaf belongs to a tree without receiving the entire tree.
+
+### Proof Structure
+
+Each proof contains:
+
+- `leaf_index`: Position of the leaf in the original dataset.
+- `tree_size`: Total number of leaves.
+- `siblings`: List of sibling hashes and their directions.
+
+Example proof format:
 
 ```json
 {
   "leaf_index": 2,
   "tree_size": 5,
   "siblings": [
-    {"side": "right", "hash": "2f390850473879f7703fb2c95a634ca1ac5ff9334e85793c22a0d366ee1f87a9"},
-    {"side": "left",  "hash": "983a3d6975e5df6f54cd52814248dbb5d5d2e29b0b83cca6cc703d0e5ecaa6b5"},
-    {"side": "right", "hash": "6689c56f30b7d572d08f4b1f7ac0911d9a375f865d93bee06f865bfe7634ebd0"}
+    {
+      "side": "right",
+      "hash": "2f390850473879f7703fb2c95a634ca1ac5ff9334e85793c22a0d366ee1f87a9"
+    },
+    {
+      "side": "left",
+      "hash": "983a3d6975e5df6f54cd52814248dbb5d5d2e29b0b83cca6cc703d0e5ecaa6b5"
+    },
+    {
+      "side": "right",
+      "hash": "6689c56f30b7d572d08f4b1f7ac0911d9a375f865d93bee06f865bfe7634ebd0"
+    }
   ]
 }
 ```
 
-Strict parsing rejects: invalid JSON; duplicate keys; `NaN`; non-object top level; missing or **extra** keys;
-`leaf_index` / `tree_size` that are not plain integers (floats, strings, booleans); `tree_size` < 1 or > 2^64-1;
-`leaf_index` out of range; `siblings` not a list; a sibling that is not exactly `{side, hash}`;
-`side` anything other than exactly `"left"` or `"right"` (so `"Left"`, `"up"`, `null`, `0` fail);
-`hash` that is not exactly **64 hex characters** (wrong length, non-hex, `0x` prefix, whitespace, non-string).
-Uppercase hex is accepted on input; output is always lowercase.
+The `side` field indicates where the sibling is located:
 
-## 4. CLI usage
+- `left`: The sibling is on the left.
+- `right`: The sibling is on the right.
 
-Leaves come from a file, **one leaf per line** (`-` = stdin). Rules: raw line bytes (no decoding or Unicode normalization);
-CRLF = LF; a final line terminator does not start another leaf; blank lines in the middle are empty leaves; an empty file has
-zero leaves. `--encoding hex` reads each line as strict hex bytes instead.
+For a five-leaf tree, a proof for leaf index 2 requires three siblings.
 
-`examples/transactions.txt`:
+<caption>Illustration of the inclusion proof path for five transactions.</caption>
 
+![Merkle proof path diagram](docs/proof_path_5_tx.svg)
+
+### 6.1 Proof Verification
+
+The verification function is:
+
+```python
+verify(leaf, proof, expected_root)
 ```
+
+It uses only three inputs:
+
+1. Original leaf data.
+2. Merkle inclusion proof.
+3. Expected Merkle root.
+
+The verifier does not need access to the original Merkle Tree.
+
+The verification process:
+
+1. Reads `leaf_index` and `tree_size` from the proof.
+2. Recomputes the expected sibling directions.
+3. Checks that the number of siblings is exactly correct.
+4. Rejects incorrect sibling directions.
+5. Rejects out-of-range leaf indices.
+6. Reconstructs the root by hashing the leaf with its siblings.
+7. Compares the computed root with the expected root.
+
+The verification returns `True` for a valid proof and `False` for a well-formed proof that does not match the expected root. Malformed proofs are rejected with appropriate errors.
+
+## 7. Proof JSON Validation
+
+The implementation performs strict validation of proof JSON.
+
+The following inputs are rejected:
+
+- Invalid JSON.
+- Duplicate JSON keys.
+- `NaN` values.
+- Non-object top-level JSON values.
+- Missing or additional fields.
+- Invalid `leaf_index` or `tree_size` types.
+- Tree sizes less than 1 or greater than \(2^{64}-1\).
+- Out-of-range leaf indices.
+- Sibling values that are not lists.
+- Sibling objects with missing or extra fields.
+- Invalid direction values.
+- Hashes that do not contain exactly 64 hexadecimal characters.
+- Non-hexadecimal characters or incorrectly formatted hashes.
+
+Uppercase hexadecimal input is accepted, but generated proof output always uses lowercase hexadecimal.
+
+## 8. Command-Line Interface
+
+The project provides four main CLI operations:
+
+| Command | Description |
+|---|---|
+| `merkle root` | Calculates the Merkle root of the input leaves |
+| `merkle prove` | Generates an inclusion proof for a selected leaf |
+| `merkle verify` | Verifies an inclusion proof against an expected root |
+| `merkle bench` | Benchmarks Merkle Tree construction and proof generation |
+
+### Input Format
+
+Leaves are provided through a file, with one leaf per line. A hyphen (`-`) can be used to read from standard input.
+
+The input rules are:
+
+- Each line represents one leaf.
+- Raw line bytes are used without Unicode normalization.
+- CRLF is treated as LF.
+- A final line terminator does not create an additional leaf.
+- Blank lines in the middle represent empty leaves.
+- An empty file represents zero leaves.
+- `--encoding hex` reads each line as hexadecimal bytes.
+
+### 8.1 Calculate the Merkle Root
+
+Example input file: `examples/transactions.txt`
+
+```text
 Alice pays Bob 10
 Bob pays Carol 4
 Carol pays Dave 7
@@ -111,150 +314,312 @@ Dave pays Erin 2
 Erin pays Alice 5
 ```
 
-### `merkle root`
+Command:
 
-```console
-$ merkle root --leaves examples/transactions.txt
+```bash
+merkle root --leaves examples/transactions.txt
+```
+
+Example output:
+
+```text
 leaves: 5
 root: 78c00d2ca02b959884ad83513a0f566abcc72b95f02e5400df4da618ca36d248
 ```
 
-### `merkle prove`
+### 8.2 Generate a Merkle Proof
 
-```console
-$ merkle prove --leaves examples/transactions.txt --index 2 --out examples/proof_index2.json
-proof written to examples/proof_index2.json (root 78c00d2c...)      # message goes to stderr
-$ merkle prove --leaves examples/transactions.txt --index 2         # without --out: pure JSON on stdout
+Generate a proof for the leaf at index 2:
+
+```bash
+merkle prove --leaves examples/transactions.txt --index 2 --out examples/proof_index2.json
 ```
 
-### `merkle verify`
+The proof is saved to `examples/proof_index2.json`.
 
-```console
-$ merkle verify --root 78c00d2ca02b959884ad83513a0f566abcc72b95f02e5400df4da618ca36d248 \
-      --leaf "Carol pays Dave 7" --proof examples/proof_index2.json --tree-size 5
+To print the proof directly to standard output:
+
+```bash
+merkle prove --leaves examples/transactions.txt --index 2
+```
+
+### 8.3 Verify a Merkle Proof
+
+Verify the generated proof:
+
+```bash
+merkle verify --root 78c00d2ca02b959884ad83513a0f566abcc72b95f02e5400df4da618ca36d248 --leaf "Carol pays Dave 7" --proof examples/proof_index2.json --tree-size 5
+```
+
+Expected result:
+
+```text
 VALID: leaf at index 2 is included in a tree of 5 leaves with root 78c00d2c...
+```
 
-$ merkle verify --root 78c0... --leaf "Carol pays Dave 8" --proof examples/proof_index2.json
+To demonstrate an invalid proof, change the leaf:
+
+```bash
+merkle verify --root 78c00d2ca02b959884ad83513a0f566abcc72b95f02e5400df4da618ca36d248 --leaf "Carol pays Dave 8" --proof examples/proof_index2.json
+```
+
+Expected result:
+
+```text
 INVALID: proof is well-formed but does not match the expected root
-  computed root: 245c790b01b04f158612ce23b7d63b7d9e67d257293fc094c1b74a862bfa002a
-  expected root: 78c00d2ca02b959884ad83513a0f566abcc72b95f02e5400df4da618ca36d248
 ```
 
-Leaf input: `--leaf TEXT` (UTF-8), `--leaf-hex HEX`, or `--leaf-file FILE` (exact bytes). Proof: `--proof FILE` or `-` for stdin.
-`--tree-size N` (optional) additionally requires the proof to claim that size (see section 6).
-Exit codes: `0` valid / success; `1` invalid proof or input error; `2` command-line usage error.
+### Exit Codes
 
-Malformed proofs in `examples/bad_proofs/` are each rejected with a specific message
-(root and leaf as above):
+| Exit Code | Meaning |
+|---:|---|
+| 0 | Valid proof or successful operation |
+| 1 | Invalid proof or input error |
+| 2 | Command-line usage error |
 
-| File | Result |
+### 8.4 Malformed Proof Examples
+
+The project includes malformed proof examples in `examples/bad_proofs/`.
+
+| File | Expected Rejection |
 |---|---|
-| `malformed_hash_short.json` | `INVALID: siblings[0]: malformed hash; need exactly 64 hex characters` |
-| `malformed_hash_chars.json` | `INVALID: siblings[1]: malformed hash; need exactly 64 hex characters` |
-| `invalid_direction_value.json` | `INVALID: siblings[0]: invalid direction 'up'; must be 'left' or 'right'` |
-| `wrong_direction.json` | `INVALID: siblings[0]: direction 'left' is wrong for leaf_index 2 in a tree of 5 leaves (expected 'right')` |
-| `index_out_of_range.json` | `INVALID: leaf_index 9 out of range for tree_size 5` |
-| `wrong_index.json` | `INVALID: siblings[0]: direction 'right' is wrong for leaf_index 1 in a tree of 5 leaves (expected 'left')` |
-| `too_long.json` | `INVALID: proof is unnecessarily long: 4 siblings, but leaf_index 2 in a tree of 5 leaves needs exactly 3` |
-| `too_short.json` | `INVALID: proof is too short: 2 siblings, but leaf_index 2 in a tree of 5 leaves needs exactly 3` |
+| `malformed_hash_short.json` | Hash must contain exactly 64 hexadecimal characters |
+| `malformed_hash_chars.json` | Invalid hexadecimal characters |
+| `invalid_direction_value.json` | Direction must be `left` or `right` |
+| `wrong_direction.json` | Incorrect sibling direction |
+| `index_out_of_range.json` | Leaf index exceeds tree size |
+| `wrong_index.json` | Sibling direction does not match the supplied index |
+| `too_long.json` | Proof contains more siblings than required |
+| `too_short.json` | Proof contains fewer siblings than required |
 
-### `merkle bench` (Task 6)
+## 9. Performance Benchmarking
 
-```console
-$ merkle bench --sizes 8,1024,100000 --repeat 5 --markdown
+The `merkle bench` command measures construction time and proof size for different dataset sizes.
+
+Run:
+
+```bash
+merkle bench --sizes 8,1024,100000 --repeat 5 --markdown
 ```
 
-Full table, method, and analysis in [`PERFORMANCE.md`](PERFORMANCE.md). Headline numbers on the test machine
-(pure Python, one core):
+### Benchmark Results
 
-| leaves | build time | siblings | proof size (raw / JSON) |
+The following measurements were obtained on the test machine using pure Python on one core.
+
+| Number of Leaves | Build Time | Siblings | Proof Size (Raw / JSON) |
 |---:|---:|---:|---:|
 | 8 | 0.01 ms | 3 | 96 B / 316 B |
 | 1,024 | 1.04 ms | 10 | 320 B / 956 B |
 | 100,000 | 116 ms | 17 | 544 B / 1,595 B |
-| 1,000,000 (extra) | 1.19 s | 20 | 640 B / 1,869 B |
+| 1,000,000 | 1.19 s | 20 | 640 B / 1,869 B |
 
-Construction is linear (`2n - 1` hash calls); proofs grow logarithmically.
+### Performance Analysis
 
-## 5. Library use
+- Merkle Tree construction requires approximately \(2n-1\) hash calls.
+- Tree construction has linear complexity, \(O(n)\).
+- Merkle proof generation and verification require logarithmic path sizes, \(O(\log n)\).
+- Proof sizes grow logarithmically as the number of leaves increases.
+
+For detailed measurements and methodology, refer to [`PERFORMANCE.md`](PERFORMANCE.md).
+
+## 10. Library Usage
+
+The Merkle Tree library can also be imported and used directly from Python.
 
 ```python
 from merklelab import MerkleTree, Proof, verify
 
-leaves = [b"Alice pays Bob 10", b"Bob pays Carol 4", b"Carol pays Dave 7"]
-tree = MerkleTree(leaves)              # or merkle_root(leaves) when you only need the root
-proof = tree.prove(2)                  # Proof(leaf_index=2, tree_size=3, siblings=(...))
-text = proof.to_json()                 # serialize
-ok = verify(leaves[2], Proof.from_json(text), tree.root)   # True; no access to the tree needed
+leaves = [
+    b"Alice pays Bob 10",
+    b"Bob pays Carol 4",
+    b"Carol pays Dave 7"
+]
+
+# Construct the Merkle Tree.
+tree = MerkleTree(leaves)
+
+# Generate a proof for the third leaf.
+proof = tree.prove(2)
+
+# Serialize the proof.
+text = proof.to_json()
+
+# Verify the proof without accessing the original tree.
+ok = verify(
+    leaves[2],
+    Proof.from_json(text),
+    tree.root
+)
+
+print(ok)  # True
 ```
 
-Errors: `ProofFormatError` (malformed proof), `ProofError` (wrong shape / direction / length / index / size),
-both subclasses of `MerkleError`. `verify` returns `False` only for a well-formed, consistent proof that folds to a different root.
+The library also provides:
 
-## 6. Security notes and limits
+- `merkle_root()` for calculating a root directly.
+- `Proof` and `Sibling` for representing inclusion proofs.
+- `Proof.from_json()` and `Proof.to_json()` for proof serialization.
+- `verify()` for independent proof verification.
 
-- **The root does not commit to the number of leaves.** A proof for index 2 in a tree of 5 has the same path shape as
-  index 2 in a tree of 6, so the same siblings also verify against the 5-leaf root if the proof *claims* `tree_size = 6`
-  (demonstrated in `test_tree_size_pinning`). Real systems publish the size together with the root (for example the
-  signed tree head in Certificate Transparency). Pass `--tree-size N` / `tree_size=N` to make the verifier enforce it.
-- Leaves are raw bytes. Different byte encodings of the "same" text give different roots (see Assignment 1). Normalize before building the tree.
-- A text-mode line cannot end in a literal `\r` (one trailing CR is treated as part of CRLF); use `--encoding hex` for such leaves.
-- No timing-attack concerns: all hashes are public.
+### Error Handling
 
-## 7. Tests and test vectors
+The implementation defines the following error types:
+
+| Error | Description |
+|---|---|
+| `MerkleError` | Base exception for Merkle Tree errors |
+| `ProofFormatError` | Raised for malformed proof data |
+| `ProofError` | Raised for invalid proof structure, direction, length, index, or size |
+
+These exceptions are subclasses of `MerkleError`.
+
+## 11. Security Considerations and Limitations
+
+### Tree Size Commitment
+
+A Merkle root does not independently commit to the number of leaves.
+
+For example, a proof for index 2 in a five-leaf tree can have the same path shape as a proof for index 2 in a six-leaf tree.
+
+Therefore, the verifier should also validate the expected tree size.
+
+The implementation supports this using:
 
 ```bash
-pytest -q          # 161 tests, all passing
+--tree-size N
 ```
 
-- **Independent reference:** `tests/reference_rfc6962.py` is a separate recursive implementation of RFC 6962 (written differently
-  and sharing no code). Roots match it for sizes 0-65 and for 100, 127, 128, 129, 255, 1000; **every** proof matches for sizes 0-65, and 40 spread-out proofs for each larger size.
-- **Published vectors:** roots for 0-8 leaves match the Certificate Transparency reference roots.
-- **`vectors/test_vectors.json`:** 15 leaf sets (CT sizes 0-8, the five transactions, sizes 9, 10, 11, 16, 17) with root and
-  every inclusion proof, generated by the independent reference (`python scripts/gen_vectors.py`).
-- Hand-computed roots for 0, 1, 2, 3, 4, 5 leaves; odd/even; promotion vs duplication; domain separation attack.
-- Proofs for every leaf of every size 1-33 verify, wrong leaf/root fail, every sibling tampering is caught.
-- Rejections: wrong direction, wrong index, too long, too short, 29 malformed-field cases, malformed JSON text, bad UTF-8.
-- CLI behaviour, exit codes, CRLF handling, hex leaves, and all eight files in `examples/bad_proofs/`.
-- 100,000 leaves built; root checked against the independent reference; seven spread-out proofs (including the 65,535/65,536 boundary) verified.
+This behavior is demonstrated by `test_tree_size_pinning`.
 
-## 8. Project structure
+Real-world systems such as Certificate Transparency publish the tree size together with the Merkle root.
 
-```
-assign02/
-├── README.md
-├── PERFORMANCE.md             <- performance report
-├── requirements.txt           <- pytest (tests only); runtime is stdlib only
-├── pyproject.toml             <- package metadata, `merkle` entry point, pytest config
-├── .gitignore
-├── src/merklelab/
-│   ├── hashing.py             <- Hleaf, Hnode, EMPTY_ROOT, MerkleError
-│   ├── tree.py                <- MerkleTree, merkle_root, proof generation
-│   ├── proof.py               <- Proof/Sibling, strict JSON, expected_sides, verify
-│   ├── leafio.py              <- one-leaf-per-line file rules
-│   ├── bench.py               <- benchmark
-│   ├── cli.py                 <- root / prove / verify / bench
-│   └── __main__.py
-├── tests/                     <- test_merklelab.py, reference_rfc6962.py
-├── vectors/test_vectors.json
-├── examples/                  <- transactions.txt, proof_index2.json, bad_proofs/
-├── docs/                      <- proof_path_5_tx.svg / .png
-└── scripts/                   <- gen_vectors.py, make_diagram.py
+### Raw Byte Representation
+
+Leaves are treated as raw bytes. Different byte encodings of the same text can produce different hashes.
+
+Input data should therefore be normalized before constructing the tree when consistent textual representation is required.
+
+### Line-Based Input
+
+A text-mode line cannot represent a literal trailing carriage return independently of CRLF handling. Use `--encoding hex` when exact byte representation is required.
+
+### Hash Visibility
+
+The implementation uses public SHA-256 hashes. The hashes themselves do not require secret information or timing-attack protection.
+
+## 12. Automated Testing and Test Vectors
+
+Run the complete test suite:
+
+```bash
+pytest -q
 ```
 
-## 9. Demo video checklist (with audio, Unlisted on YouTube)
+**Test Results:**
 
-1. Setup and `pytest -q` passing; mention the independent RFC 6962 cross-check.
-2. Show the specification: prefixes, promotion rule, zero/one leaf roots.
-3. `merkle root` and `merkle prove --index 2`; walk through the diagram (three siblings, directions).
-4. `merkle verify` VALID; change one character of the leaf -> INVALID.
-5. Run the bad proofs in `examples/bad_proofs/` (malformed hash, direction, index, too long).
-6. `merkle bench`; explain linear build and logarithmic proofs (see `PERFORMANCE.md`).
-7. Explain why the tree size should be pinned (`--tree-size`).
+| Metric | Result |
+|---|---:|
+| Total Tests | 161 |
+| Passed | 161 |
+| Failed | 0 |
 
-## 10. Submission checklist
+### Testing Coverage
 
-- [ ] This folder is `assign02/` at the root of your private roll-number repo (like `assign01`...`assign07` in the reference repo)
-- [ ] Collaborator `blockchain.iitp.20261@atomicmail.io` added
-- [ ] YouTube link above filled in, video **Unlisted**
-- [ ] Link submitted on the MS Form: https://forms.cloud.microsoft/r/huBck9hkD7
+The automated tests cover:
+
+- Published RFC 6962 Certificate Transparency roots for zero to eight leaves.
+- Independent reference implementation comparison.
+- Merkle roots for different tree sizes.
+- Inclusion proofs for every leaf in trees of sizes 1 to 33.
+- Wrong leaf and wrong root rejection.
+- Sibling tampering detection.
+- Invalid proof directions and indices.
+- Proofs that are too long or too short.
+- Malformed proof fields and JSON input.
+- Domain separation.
+- Odd-node promotion instead of duplication.
+- CLI commands and exit codes.
+- CRLF handling and hexadecimal leaf input.
+- Large datasets containing 100,000 leaves.
+
+### Independent Reference Verification
+
+The project includes:
+
+```text
+tests/reference_rfc6962.py
+```
+
+This is an independent recursive implementation of RFC 6962.
+
+The implementation is used to cross-check Merkle roots and inclusion proofs across multiple tree sizes.
+
+### Test Vectors
+
+The file:
+
+```text
+vectors/test_vectors.json
+```
+
+contains 15 test-vector sets, including:
+
+- Certificate Transparency reference cases for sizes 0–8.
+- The five-transaction example.
+- Additional cases for sizes 9, 10, 11, 16, and 17.
+- Expected Merkle roots and inclusion proofs.
+
+Regenerate the vectors using:
+
+```bash
+python scripts/gen_vectors.py
+```
+
+## 13. Deliverables
+
+| Deliverable | Location |
+|---|---|
+| Merkle Tree library | `src/merklelab/` |
+| Hashing implementation | `src/merklelab/hashing.py` |
+| Tree construction and root calculation | `src/merklelab/tree.py` |
+| Proof generation and verification | `src/merklelab/proof.py` |
+| CLI implementation | `src/merklelab/cli.py` |
+| Automated tests | `tests/` |
+| Independent RFC 6962 reference | `tests/reference_rfc6962.py` |
+| Test vectors | `vectors/test_vectors.json` |
+| Valid and invalid proof examples | `examples/` |
+| Proof-path diagram | `docs/proof_path_5_tx.svg`, `docs/proof_path_5_tx.png` |
+| Performance report | `PERFORMANCE.md` |
+
+## 14. Demonstration Video Checklist
+
+The demonstration video should include:
+
+1. Project setup and successful execution of `pytest -q`.
+2. Explanation of the Merkle Tree specification, domain separation, and odd-node promotion.
+3. Merkle root calculation using `merkle root`.
+4. Proof generation using `merkle prove --index 2`.
+5. Explanation of the three sibling hashes and their directions using the proof-path diagram.
+6. Successful proof verification using `merkle verify`.
+7. Demonstration of an invalid proof by changing the leaf data.
+8. Execution of malformed proof examples from `examples/bad_proofs/`.
+9. Performance benchmarking using `merkle bench`.
+10. Explanation of why the tree size must be pinned using `--tree-size`.
+
+## 15. Submission Checklist
+
+- [ ] Assignment folder is named `assign02/` and placed at the root of the private roll-number repository.
+- [ ] All source code, tests, examples, vectors, documentation, and performance reports are included.
+- [ ] Collaborator `blockchain.iitp.20261@atomicmail.io` has been added.
+- [ ] Demonstration video has been uploaded to YouTube as **Unlisted**.
+- [ ] YouTube video link has been added to this README.
+- [ ] Video link has been submitted through the official MS Form: https://forms.cloud.microsoft/r/huBck9hkD7
+
+---
+
+**Course:** Blockchain Engineering  
+**Instructor:** Dr. Mayank Agarwal  
+**Department:** Computer Science and Engineering  
+**Institution:** Indian Institute of Technology Patna  
+**Academic Session:** July–December 2026  
+**Roll Number:** 2302CS08
