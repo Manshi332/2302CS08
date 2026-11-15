@@ -1,129 +1,495 @@
-# Assignment 3: Keys, Addresses, and Signed Transactions (`walletlab`)
+# Assignment 3 – Keys, Addresses, and Signed Transactions
 
-**Course:** Blockchain, Dr. Mayank Agarwal, CSE, IIT Patna (Jul-Dec 2026)
-**Student:** `<YOUR NAME>` | **Roll number:** `<YOUR ROLL NO>`
-**Demo video (YouTube, Unlisted):** `<PASTE YOUTUBE LINK HERE>`
+### Project: WalletLab
 
-An educational wallet: it generates Ed25519 keys, derives Base58Check addresses, builds a canonical
-transaction, signs it, and lets anyone verify it **using only public data and the specification**.
-All elliptic-curve math and randomness come from the maintained
-[`cryptography`](https://cryptography.io) library; none is implemented here.
+**Student:** Manshi Prajapati  
+**Roll Number:** 2302CS08  
+**Course:** Blockchain Engineering – Dr. Mayank Agarwal  
+**Department:** Computer Science and Engineering, IIT Patna  
+**Academic Session:** July–December 2026
 
-| Deliverable | Where |
-|---|---|
-| Commands `keygen`, `address`, `sign`, `verify` | `src/walletlab/cli.py` |
-| Tests (57) | `tests/test_walletlab.py` |
-| Byte-level transaction-format document | [`docs/TX_FORMAT.md`](docs/TX_FORMAT.md) |
-| Threat-model note | [`docs/THREAT_MODEL.md`](docs/THREAT_MODEL.md) |
-| Test vectors + tamper cases | `vectors/test_vectors.json`, `examples/`, `examples/bad/` |
-
-**Reuse from Assignment 1:** the canonical-JSON rules (`hashlab` canonical form v1) are copied into
-`src/walletlab/canonical.py` so this folder is self-contained. They give identical signed bytes for JSON
-that differs only in whitespace or key order.
+**Demo Video:** [Watch Assignment 3 Demonstration](<ASSIGNMENT_03_VIDEO_LINK>)
 
 ---
 
-## 1. Setup
+## 1. Overview
 
-Python **3.11+**; one runtime dependency (`cryptography`).
+This assignment focuses on implementing an educational blockchain wallet using Python and the `cryptography` library.
 
-```bash
-# from inside this assignment folder
-python3 -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
-pip install -r requirements.txt    # cryptography + pytest
-pip install -e .                   # installs the `walletlab` command
+The wallet supports secure Ed25519 key generation, Base58Check address derivation, canonical transaction serialization, digital transaction signing, and independent signature verification.
+
+The main objective is to demonstrate how transactions can be signed by their owners and independently verified by anyone using only public information and the transaction specification, without requiring access to the private key.
+
+All elliptic-curve operations and cryptographic randomness are provided by the maintained [`cryptography`](https://cryptography.io/) library. No cryptographic primitives are implemented from scratch.
+
+### Key Features
+
+- Ed25519 public-private key generation using the operating system's cryptographically secure random number generator (CSPRNG).
+- Base58Check wallet address generation and validation.
+- Canonical JSON serialization for consistent signing bytes.
+- Digital transaction signing using Ed25519.
+- Independent signature verification using public information.
+- Network validation to distinguish testnet and mainnet addresses.
+- Replay protection using transaction nonces and persistent state.
+- Detection of transaction tampering, wrong signers, invalid addresses, and non-canonical signatures.
+
+## 2. Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python 3.11+ | Core implementation |
+| Ed25519 | Digital signatures and verification |
+| SHA-256 | Public-key hashing and transaction integrity |
+| Base58Check | Wallet address encoding |
+| Canonical JSON | Deterministic transaction serialization |
+| `cryptography` | Cryptographic operations |
+| pytest | Automated testing |
+
+## 3. Reuse from Assignment 1
+
+The canonical JSON serialization rules from Assignment 1 (`hashlab`, canonical form v1) are copied into:
+
+```text
+src/walletlab/canonical.py
 ```
 
-Without installing: `PYTHONPATH=src python3 -m walletlab <command>` (PowerShell: `$env:PYTHONPATH="src"`).
+This makes Assignment 3 self-contained.
 
-## 2. Usage
+Canonical serialization ensures that JSON transactions differing only in whitespace or key ordering produce identical serialized bytes. This allows signatures to remain consistent across different JSON representations.
 
-### `keygen`: key pair from the OS CSPRNG (public key only by default)
+## 4. Project Structure
 
-```console
-$ walletlab keygen --public-out alice.pub.json
+```text
+assign03/
+│
+├── README.md
+├── pyproject.toml
+├── requirements.txt
+│
+├── src/
+│   └── walletlab/
+│       ├── __init__.py
+│       ├── __main__.py
+│       ├── address.py
+│       ├── base58.py
+│       ├── canonical.py
+│       ├── cli.py
+│       ├── errors.py
+│       ├── keys.py
+│       └── ...
+│
+├── tests/
+│   └── test_walletlab.py
+│
+├── docs/
+│   ├── TX_FORMAT.md
+│   └── THREAT_MODEL.md
+│
+├── vectors/
+│   └── test_vectors.json
+│
+└── examples/
+    ├── tx.json
+    ├── signed_tx.json
+    ├── signed_tx_reordered.json
+    │
+    └── bad/
+        ├── amount_changed.json
+        ├── wrong_signer.json
+        ├── wrong_network.json
+        ├── bad_checksum_address.json
+        ├── signature_non_canonical_S.json
+        └── signature_uppercase.json
+```
+
+## 5. Setup and Installation
+
+### Prerequisites
+
+- Python 3.11 or later.
+- pip.
+- `cryptography` library.
+
+### Windows (PowerShell)
+
+Run the following commands from the `assign03` directory:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+pip install -e .
+```
+
+### Linux / macOS
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install -e .
+```
+
+The editable installation provides the `walletlab` command.
+
+Alternatively, the package can be executed without installing it using:
+
+**Linux / macOS:**
+
+```bash
+PYTHONPATH=src python3 -m walletlab <command>
+```
+
+**Windows PowerShell:**
+
+```powershell
+$env:PYTHONPATH="src"
+python -m walletlab <command>
+```
+
+## 6. Command-Line Interface
+
+The wallet provides four primary commands:
+
+| Command | Description |
+|---|---|
+| `keygen` | Generates an Ed25519 key pair |
+| `address` | Derives or validates a wallet address |
+| `sign` | Signs a transaction using a private key |
+| `verify` | Verifies a signed transaction using public information |
+| `canonical` | Displays the canonical JSON representation of a file |
+
+### 6.1 Key Generation
+
+The `keygen` command generates an Ed25519 key pair using the operating system's CSPRNG.
+
+By default, only the public key is saved.
+
+```bash
+walletlab keygen --public-out alice.pub.json
+```
+
+Example output:
+
+```text
 network: course-testnet
 public_key: 5c8170ed...1c39
 address: msQSCSB3ukWznXune7uzPjN1S6Yqq9uh5h
-private key: NOT saved (use --dev-export-private PATH for a test-only key file)
-
-$ walletlab keygen --public-out alice.pub.json --dev-export-private dev_private_key_alice.json
-WARNING: wrote UNENCRYPTED private key to dev_private_key_alice.json (mode 0600).
-WARNING: TEST-ONLY DEVELOPMENT KEY. Never use for real funds, never commit, never share.
+private key: NOT saved
 ```
 
-Files are created exclusively (no overwrite). The private file is `0600` and the loader refuses looser modes.
+To export a private key for development and testing:
 
-### `address`: derive or validate
+```bash
+walletlab keygen --public-out alice.pub.json --dev-export-private dev_private_key_alice.json
+```
 
-```console
-$ walletlab address --pub alice.pub.json            # or --public-key <64 hex>
-$ walletlab address --check msQSCSB3ukWznXune7uzPjN1S6Yqq9uh5h --network-required course-testnet
+The program displays warnings because the exported private key is unencrypted and intended only for testing.
+
+**Security properties:**
+
+- Files are created exclusively and existing files are never overwritten.
+- The private key file is created with permissions `0600`.
+- The private-key loader refuses files with looser permissions.
+- Private keys must never be committed to a repository or shared.
+
+### 6.2 Address Generation and Validation
+
+Generate a wallet address from a public-key file:
+
+```bash
+walletlab address --pub alice.pub.json
+```
+
+Alternatively, provide a public key in hexadecimal format:
+
+```bash
+walletlab address --public-key <64-HEX-PUBLIC-KEY>
+```
+
+Validate an address and check its network:
+
+```bash
+walletlab address --check <ADDRESS> --network-required course-testnet
+```
+
+Example output:
+
+```text
 valid: yes
 ```
 
-`pkh = SHA-256(pubkey)[:20]`; `address = Base58Check(version_byte ‖ pkh)`; testnet `0x6F`, mainnet `0x3F`.
+#### Address Derivation
 
-### `sign`
+The public-key hash is calculated as:
 
-```console
-$ walletlab sign --key dev_private_key_alice.json --tx examples/tx.json --out signed.json
-```
+\[
+pkh=\operatorname{SHA256}(public\_key)[0:20]
+\]
 
-Refuses unless the key owns `sender` and the transaction passes the strict schema.
+The address is generated using Base58Check encoding:
 
-### `verify`: needs only the signed file (public data) and the specification
+\[
+address=\operatorname{Base58Check}(version\_byte\parallel pkh)
+\]
 
-```console
-$ walletlab verify --signed examples/signed_tx.json
-VALID
-network: course-testnet
-sender: mjX8sCthdoF8Xj36VvX8ZLoMWUVr1kBtmr
-...
-$ walletlab verify --signed examples/bad/amount_changed.json
-REJECTED: signature does not verify (a signed field was changed, or wrong key)     # exit status 1
-```
+| Network | Version Byte |
+|---|---|
+| Testnet | `0x6F` |
+| Mainnet | `0x3F` |
 
-Replay protection (stateful): `--state state.json` rejects `nonce <= last accepted` for that sender;
-add `--update-state` to record a newly accepted nonce.
+### 6.3 Transaction Signing
 
-```console
-$ walletlab verify --signed signed.json --state state.json --update-state   # VALID, nonce 7 stored
-$ walletlab verify --signed signed.json --state state.json                  # REJECTED: replayed ...
-```
-
-`walletlab canonical FILE` prints the canonical JSON text, a debugging aid.
-
-## 3. How each rejection requirement is met
-
-| Required rejection | Check | Demonstrated by |
-|---|---|---|
-| Changed amount (any field) | signature over canonical bytes fails | `examples/bad/amount_changed.json`, `test_changing_any_signed_field_fails` |
-| Wrong network | `network_id` ≠ verifier's network; address version bytes | `bad/wrong_network.json`, `test_wrong_network_rejected` |
-| Wrong signer | `address(public_key) ≠ sender` | `bad/wrong_signer.json`, `test_wrong_signer_rejected` |
-| Replayed nonce | `nonce <= last_nonce[sender]` with `--state` | `test_replayed_nonce_rejected_by_state`, `test_cli_end_to_end` |
-| Malformed address / invalid checksum | Base58Check decode, length, version, canonical spelling | `bad/bad_checksum_address.json`, `test_every_single_char_typo_detected` |
-| Non-canonical signature encoding | lowercase hex, 64 bytes, scalar `S < L` | `bad/signature_non_canonical_S.json`, `bad/signature_uppercase.json` |
-
-Acceptance: `examples/signed_tx_reordered.json` (shuffled keys, tabs/newlines) verifies with the same
-`signing_bytes_sha256` as `examples/signed_tx.json`.
-
-## 4. Tests and reproducibility
+The `sign` command signs a transaction using the corresponding private key.
 
 ```bash
-python3 -m pytest -q          # 57 passed
-PYTHONPATH=src python3 scripts/gen_examples.py   # regenerate examples/ and vectors/ (deterministic)
+walletlab sign --key dev_private_key_alice.json --tx examples/tx.json --out signed.json
 ```
 
-Example keys come from public, test-only seeds (`SHA-256("walletlab test-only alice")`, `... bob`);
-Ed25519 signing is deterministic, so everyone obtains identical bytes. The tests also pin the
-RFC 8032 test vector 1 to prove the library is used correctly.
+Before generating the signature, the program:
 
-## 5. Design notes and limits
+1. Loads the private key.
+2. Validates the transaction schema.
+3. Checks whether the private key owns the transaction sender address.
+4. Generates the canonical transaction bytes.
+5. Creates an Ed25519 digital signature.
+6. Saves the signed transaction.
 
-- **Why Ed25519:** small, deterministic signatures (no signing-time RNG), simple encoding. The assignment
-  allows secp256k1 or Ed25519.
-- Address hash is SHA-256 truncated to 20 bytes (no RIPEMD-160, which OpenSSL 3 may not ship).
-- Stateless `verify` cannot detect replay; use `--state` (a real ledger would own that state).
-- Private keys are stored **unencrypted** (development only). See [`docs/THREAT_MODEL.md`](docs/THREAT_MODEL.md).
+The command refuses to sign a transaction if the private key does not correspond to the sender address.
+
+### 6.4 Signature Verification
+
+The `verify` command independently verifies a signed transaction using public information.
+
+```bash
+walletlab verify --signed examples/signed_tx.json
+```
+
+Example successful output:
+
+```text
+VALID
+network: course-testnet
+sender: <SENDER_ADDRESS>
+```
+
+To demonstrate tampering detection:
+
+```bash
+walletlab verify --signed examples/bad/amount_changed.json
+```
+
+Expected result:
+
+```text
+REJECTED: signature does not verify
+```
+
+The verification process does not require the sender's private key.
+
+### 6.5 Replay Protection
+
+Replay protection prevents an already accepted transaction from being accepted again.
+
+The verifier maintains the last accepted nonce for each sender.
+
+A transaction is rejected when:
+
+\[
+nonce \leq last\_nonce[sender]
+\]
+
+To verify a transaction and update the replay state:
+
+```bash
+walletlab verify --signed signed.json --state state.json --update-state
+```
+
+Example:
+
+```text
+VALID
+nonce 7 stored
+```
+
+Verify the same transaction again:
+
+```bash
+walletlab verify --signed signed.json --state state.json
+```
+
+Expected result:
+
+```text
+REJECTED: replayed transaction
+```
+
+Stateless verification cannot detect replay attacks. Replay protection requires maintaining state using the `--state` option.
+
+### 6.6 Canonical Serialization
+
+Display the canonical JSON representation of a transaction:
+
+```bash
+walletlab canonical examples/tx.json
+```
+
+Canonical serialization ensures that JSON documents with different whitespace or key ordering produce identical signing bytes.
+
+## 7. Rejection Requirements and Security Validation
+
+The implementation supports several rejection conditions to prevent invalid or malicious transactions.
+
+| Required Rejection | Validation Mechanism | Demonstration |
+|---|---|---|
+| Changed transaction amount or another signed field | Signature verification over canonical bytes | `examples/bad/amount_changed.json` |
+| Wrong network | Validates `network_id` and address version | `examples/bad/wrong_network.json` |
+| Wrong signer | Checks that the public-key-derived address matches the sender | `examples/bad/wrong_signer.json` |
+| Replayed nonce | Checks `nonce <= last_nonce[sender]` using replay state | `test_replayed_nonce_rejected_by_state` |
+| Malformed address or invalid checksum | Base58Check decoding, length, version, and canonical spelling checks | `examples/bad/bad_checksum_address.json` |
+| Non-canonical signature encoding | Validates lowercase hexadecimal encoding, 64-byte signature length, and scalar `S < L` | `examples/bad/signature_non_canonical_S.json` and `signature_uppercase.json` |
+
+### Canonical Serialization Acceptance Test
+
+The implementation also verifies:
+
+```text
+examples/signed_tx_reordered.json
+```
+
+This file contains shuffled JSON keys and different whitespace formatting.
+
+It must verify successfully and produce the same `signing_bytes_sha256` as:
+
+```text
+examples/signed_tx.json
+```
+
+This demonstrates that canonical serialization makes signatures independent of JSON formatting.
+
+## 8. Automated Testing
+
+Run the complete test suite:
+
+```bash
+python3 -m pytest -q
+```
+
+Expected result:
+
+```text
+57 passed
+```
+
+The tests cover:
+
+- Key generation.
+- Address derivation and validation.
+- Canonical serialization.
+- Transaction signing.
+- Signature verification.
+- Invalid signer rejection.
+- Wrong network rejection.
+- Tampering detection.
+- Replay protection.
+- Non-canonical signature rejection.
+- Command-line end-to-end execution.
+
+### Test Results
+
+| Metric | Result |
+|---|---:|
+| Total Tests | 57 |
+| Passed | 57 |
+| Failed | 0 |
+
+**Test Result: 57/57 tests passed.**
+
+## 9. Test Vectors and Reproducibility
+
+Regenerate the examples and test vectors using:
+
+```bash
+PYTHONPATH=src python3 scripts/gen_examples.py
+```
+
+On Windows PowerShell:
+
+```powershell
+$env:PYTHONPATH="src"
+python scripts/gen_examples.py
+```
+
+Example keys are generated from public, test-only seeds:
+
+```text
+SHA-256("walletlab test-only alice")
+SHA-256("walletlab test-only bob")
+```
+
+Ed25519 signing is deterministic. Therefore, the same test inputs produce identical signatures and serialized bytes.
+
+The tests also verify RFC 8032 test vector 1 to confirm that the cryptographic library is being used correctly.
+
+## 10. Design Notes and Security Limitations
+
+### Why Ed25519?
+
+Ed25519 was selected because it provides:
+
+- Compact digital signatures.
+- Deterministic signing without signing-time randomness.
+- Simple key and signature encoding.
+- Reliable implementation through the maintained `cryptography` library.
+
+The assignment permits either secp256k1 or Ed25519.
+
+### Address Hashing
+
+The address uses the first 20 bytes of SHA-256 of the public key.
+
+RIPEMD-160 is not used because it may not be available in some OpenSSL 3 environments.
+
+### Replay Protection
+
+Stateless signature verification cannot identify whether a valid transaction has already been processed.
+
+Replay detection requires persistent nonce state. In a real blockchain system, this responsibility would belong to the transaction ledger.
+
+### Private-Key Storage
+
+Private keys exported by the development option are stored unencrypted.
+
+These files are intended strictly for educational testing and must never be used to protect real funds.
+
+For additional security details, refer to [`docs/THREAT_MODEL.md`](docs/THREAT_MODEL.md).
+
+## 11. Deliverables
+
+| Deliverable | Location |
+|---|---|
+| Key generation and wallet implementation | `src/walletlab/keys.py` |
+| Address derivation and validation | `src/walletlab/address.py` |
+| Base58Check encoding | `src/walletlab/base58.py` |
+| Canonical JSON serialization | `src/walletlab/canonical.py` |
+| Transaction signing and verification commands | `src/walletlab/cli.py` |
+| Automated tests | `tests/test_walletlab.py` |
+| Transaction test vectors | `vectors/test_vectors.json` |
+| Valid and invalid transaction examples | `examples/`, `examples/bad/` |
+| Transaction format specification | `docs/TX_FORMAT.md` |
+| Security threat model | `docs/THREAT_MODEL.md` |
+
+## 12. Demonstration Video
+
+**YouTube Demo:** [Watch Assignment 3 Demonstration](<ASSIGNMENT_03_VIDEO_LINK>)
+
+The demonstration covers project structure, Ed25519 key generation, wallet address derivation, transaction preparation, digital signing, signature verification, tampering detection, replay protection, canonical serialization, and automated testing.
+
+---
+
+**Course:** Blockchain Engineering  
+**Instructor:** Dr. Mayank Agarwal  
+**Department:** Computer Science and Engineering  
+**Institution:** Indian Institute of Technology Patna  
+**Academic Session:** July–December 2026  
+**Roll Number:** 2302CS08
