@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "p2plab"
+version = "1.0.0"
+description = "Assignment 6: peer-to-peer mempool and block relay network"
+requires-python = ">=3.10"
+dependencies = ["cryptography>=41"]
+
+[project.scripts]
+p2plab = "p2plab.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

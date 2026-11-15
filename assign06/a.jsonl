@@ -1,0 +1,65 @@
+{"event": "node_started", "node": "a", "object_id": null, "peer": null, "port": 9000, "ts": 1794740970.4785}
+{"addr": "('127.0.0.1', 60234)", "direction": "in", "event": "connection_open", "node": "a", "object_id": null, "peer": null, "ts": 1794741034.4417}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": null, "ts": 1794741034.4424, "type": "version"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741034.4427, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "a", "object_id": null, "peer": "b", "ts": 1794741034.4428}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741034.4432, "type": "getaddr"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741034.4435, "type": "addr"}
+{"count": 0, "event": "addr_received", "new": 0, "node": "a", "object_id": null, "peer": "b", "ts": 1794741034.4435}
+{"event": "peer_disconnected", "node": "a", "object_id": null, "peer": "b", "reason": "connection_ended", "ts": 1794741036.333}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741038.5563}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741041.0948}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741043.6405}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741046.1866}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741048.723}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741051.2659}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741053.8024}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741056.3464}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741058.8752}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741060.9101}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741063.4391}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741065.9866}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741068.5367}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741071.0808}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741073.6175}
+{"addr": "127.0.0.1:9001", "error": "ConnectionRefusedError", "event": "connect_failed", "node": "a", "object_id": null, "peer": null, "ts": 1794741076.1688}
+{"addr": "('127.0.0.1', 59029)", "direction": "in", "event": "connection_open", "node": "a", "object_id": null, "peer": null, "ts": 1794741078.0938}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": null, "ts": 1794741078.0941, "type": "version"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741078.0944, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "a", "object_id": null, "peer": "b", "ts": 1794741078.0945}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741078.0947, "type": "getaddr"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741078.0951, "type": "addr"}
+{"count": 0, "event": "addr_received", "new": 0, "node": "a", "object_id": null, "peer": "b", "ts": 1794741078.0952}
+{"addr": "('127.0.0.1', 9001)", "direction": "out", "event": "connection_open", "node": "a", "object_id": null, "peer": null, "ts": 1794741078.2119}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": null, "ts": 1794741078.2133, "type": "version"}
+{"code": "duplicate_connection", "event": "protocol_error", "fatal": true, "node": "a", "object_id": null, "peer": null, "reason": "already connected", "ts": 1794741078.2134}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741083.1929, "type": "ping"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741083.258, "type": "pong"}
+{"event": "pong", "node": "a", "object_id": null, "peer": "b", "rtt": 0.0008, "ts": 1794741083.2581}
+{"addr": "('127.0.0.1', 55312)", "direction": "in", "event": "connection_open", "node": "a", "object_id": null, "peer": null, "ts": 1794741086.3428}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": null, "ts": 1794741086.3431, "type": "version"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "c", "ts": 1794741086.3433, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "a", "object_id": null, "peer": "c", "ts": 1794741086.3434}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "c", "ts": 1794741086.3436, "type": "getaddr"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "c", "ts": 1794741086.3438, "type": "addr"}
+{"count": 0, "event": "addr_received", "new": 0, "node": "a", "object_id": null, "peer": "c", "ts": 1794741086.3439}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741088.2687, "type": "ping"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741088.3266, "type": "pong"}
+{"event": "pong", "node": "a", "object_id": null, "peer": "b", "rtt": 0.0016, "ts": 1794741088.3268}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "c", "ts": 1794741091.3647, "type": "pong"}
+{"event": "pong", "node": "a", "object_id": null, "peer": "c", "rtt": 0.0009, "ts": 1794741091.3648}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "c", "ts": 1794741091.3861, "type": "ping"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741093.3313, "type": "ping"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741093.3974, "type": "pong"}
+{"event": "pong", "node": "a", "object_id": null, "peer": "b", "rtt": 0.001, "ts": 1794741093.3976}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "c", "ts": 1794741096.4796, "type": "pong"}
+{"event": "pong", "node": "a", "object_id": null, "peer": "c", "rtt": 0.001, "ts": 1794741096.4797}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "c", "ts": 1794741096.4946, "type": "ping"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741098.42, "type": "ping"}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "b", "ts": 1794741098.5112, "type": "pong"}
+{"event": "pong", "node": "a", "object_id": null, "peer": "b", "rtt": 0.0016, "ts": 1794741098.5116}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "c", "ts": 1794741101.555, "type": "pong"}
+{"event": "pong", "node": "a", "object_id": null, "peer": "c", "rtt": 0.0008, "ts": 1794741101.5551}
+{"event": "msg_in", "node": "a", "object_id": null, "peer": "c", "ts": 1794741101.5711, "type": "ping"}
+{"event": "peer_disconnected", "node": "a", "object_id": null, "peer": "b", "reason": "connection_ended", "ts": 1794741103.2945}
+{"event": "peer_disconnected", "node": "a", "object_id": null, "peer": "c", "reason": "connection_ended", "ts": 1794741103.2947}

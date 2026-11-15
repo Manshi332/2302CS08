@@ -1,0 +1,455 @@
+{"event": "node_started", "node": "n0", "object_id": null, "peer": null, "port": 63333, "ts": 1794740658.752}
+{"event": "node_started", "node": "n1", "object_id": null, "peer": null, "port": 63334, "ts": 1794740658.7523}
+{"event": "node_started", "node": "n2", "object_id": null, "peer": null, "port": 63335, "ts": 1794740658.7525}
+{"event": "node_started", "node": "n3", "object_id": null, "peer": null, "port": 63336, "ts": 1794740658.7526}
+{"event": "node_started", "node": "n4", "object_id": null, "peer": null, "port": 63337, "ts": 1794740658.7527}
+{"addr": "('127.0.0.1', 63338)", "direction": "in", "event": "connection_open", "node": "n0", "object_id": null, "peer": null, "ts": 1794740658.7532}
+{"addr": "('127.0.0.1', 63333)", "direction": "out", "event": "connection_open", "node": "n1", "object_id": null, "peer": null, "ts": 1794740658.7535}
+{"addr": "('127.0.0.1', 63339)", "direction": "in", "event": "connection_open", "node": "n0", "object_id": null, "peer": null, "ts": 1794740658.7538}
+{"addr": "('127.0.0.1', 63333)", "direction": "out", "event": "connection_open", "node": "n2", "object_id": null, "peer": null, "ts": 1794740658.754}
+{"addr": "('127.0.0.1', 63340)", "direction": "in", "event": "connection_open", "node": "n0", "object_id": null, "peer": null, "ts": 1794740658.7543}
+{"addr": "('127.0.0.1', 63333)", "direction": "out", "event": "connection_open", "node": "n3", "object_id": null, "peer": null, "ts": 1794740658.7545}
+{"addr": "('127.0.0.1', 63341)", "direction": "in", "event": "connection_open", "node": "n0", "object_id": null, "peer": null, "ts": 1794740658.7547}
+{"addr": "('127.0.0.1', 63333)", "direction": "out", "event": "connection_open", "node": "n4", "object_id": null, "peer": null, "ts": 1794740658.7548}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": null, "ts": 1794740658.7805, "type": "version"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": null, "ts": 1794740658.7963, "type": "version"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": null, "ts": 1794740658.7965, "type": "version"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": null, "ts": 1794740658.7965, "type": "version"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": null, "ts": 1794740658.7966, "type": "version"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": null, "ts": 1794740658.7966, "type": "version"}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": null, "ts": 1794740658.7967, "type": "version"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": null, "ts": 1794740658.8129, "type": "version"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740658.8131, "type": "verack"}
+{"direction": "out", "event": "peer_ready", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740658.8132}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740658.8288, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740658.8289}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740658.829, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740658.829}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740658.829, "type": "verack"}
+{"direction": "out", "event": "peer_ready", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740658.829}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740658.8291, "type": "verack"}
+{"direction": "out", "event": "peer_ready", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740658.8291}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740658.8292, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740658.8292}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740658.8612, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740658.8613}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740658.8615, "type": "verack"}
+{"direction": "out", "event": "peer_ready", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740658.8615}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740658.8616, "type": "getaddr"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740658.8617, "type": "getaddr"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740658.8767, "type": "getaddr"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740658.8768, "type": "getaddr"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740658.8926, "type": "addr"}
+{"count": 0, "event": "addr_received", "new": 0, "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740658.8927}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740658.9092, "type": "getaddr"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740658.9093, "type": "getaddr"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740658.9093, "type": "getaddr"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740658.9094, "type": "addr"}
+{"count": 0, "event": "addr_received", "new": 0, "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740658.9094}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740658.9094, "type": "getaddr"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740658.9095, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 3, "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740658.9095}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740658.925, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 3, "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740658.9251}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740658.9409, "type": "addr"}
+{"count": 0, "event": "addr_received", "new": 0, "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740658.941}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740658.941, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 3, "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740658.941}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740658.9566, "type": "addr"}
+{"count": 0, "event": "addr_received", "new": 0, "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740658.9567}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740658.9567, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 3, "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740658.9567}
+{"addr": "('127.0.0.1', 63342)", "direction": "in", "event": "connection_open", "node": "n4", "object_id": null, "peer": null, "ts": 1794740659.0705}
+{"addr": "('127.0.0.1', 63345)", "direction": "in", "event": "connection_open", "node": "n1", "object_id": null, "peer": null, "ts": 1794740659.0709}
+{"addr": "('127.0.0.1', 63337)", "direction": "out", "event": "connection_open", "node": "n1", "object_id": null, "peer": null, "ts": 1794740659.0713}
+{"addr": "('127.0.0.1', 63337)", "direction": "out", "event": "connection_open", "node": "n2", "object_id": null, "peer": null, "ts": 1794740659.0715}
+{"addr": "('127.0.0.1', 63337)", "direction": "out", "event": "connection_open", "node": "n3", "object_id": null, "peer": null, "ts": 1794740659.0716}
+{"addr": "('127.0.0.1', 63334)", "direction": "out", "event": "connection_open", "node": "n4", "object_id": null, "peer": null, "ts": 1794740659.0717}
+{"addr": "('127.0.0.1', 63343)", "direction": "in", "event": "connection_open", "node": "n4", "object_id": null, "peer": null, "ts": 1794740659.0717}
+{"addr": "('127.0.0.1', 63344)", "direction": "in", "event": "connection_open", "node": "n4", "object_id": null, "peer": null, "ts": 1794740659.0719}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": null, "ts": 1794740659.0857, "type": "version"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": null, "ts": 1794740659.0859, "type": "version"}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": null, "ts": 1794740659.1009, "type": "version"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": null, "ts": 1794740659.1011, "type": "version"}
+{"code": "duplicate_connection", "event": "protocol_error", "fatal": true, "node": "n4", "object_id": null, "peer": null, "reason": "already connected", "ts": 1794740659.1011}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": null, "ts": 1794740659.1012, "type": "version"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": null, "ts": 1794740659.1012, "type": "version"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": null, "ts": 1794740659.1164, "type": "version"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n2", "ts": 1794740659.1327, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "n4", "object_id": null, "peer": "n2", "ts": 1794740659.1328}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n4", "ts": 1794740659.1329, "type": "verack"}
+{"direction": "out", "event": "peer_ready", "node": "n2", "object_id": null, "peer": "n4", "ts": 1794740659.133}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740659.1488, "type": "verack"}
+{"direction": "out", "event": "peer_ready", "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740659.1488}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740659.1489, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740659.1489}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n3", "ts": 1794740659.1647, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "n4", "object_id": null, "peer": "n3", "ts": 1794740659.1648}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740659.1817, "type": "getaddr"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n2", "ts": 1794740659.1818, "type": "getaddr"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n4", "ts": 1794740659.1819, "type": "verack"}
+{"direction": "out", "event": "peer_ready", "node": "n3", "object_id": null, "peer": "n4", "ts": 1794740659.1819}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740659.1819, "type": "getaddr"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n4", "ts": 1794740659.182, "type": "getaddr"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n4", "ts": 1794740659.2127, "type": "getaddr"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n4", "ts": 1794740659.2286, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n2", "object_id": null, "peer": "n4", "ts": 1794740659.2287}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n3", "ts": 1794740659.2287, "type": "getaddr"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n2", "ts": 1794740659.2289, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n4", "object_id": null, "peer": "n2", "ts": 1794740659.2289}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740659.2292, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740659.2292}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740659.2444, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740659.2444}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n3", "ts": 1794740659.2609, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n4", "object_id": null, "peer": "n3", "ts": 1794740659.261}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n4", "ts": 1794740659.2769, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n3", "object_id": null, "peer": "n4", "ts": 1794740659.277}
+{"addr": "('127.0.0.1', 63346)", "direction": "in", "event": "connection_open", "node": "n3", "object_id": null, "peer": null, "ts": 1794740659.3749}
+{"addr": "('127.0.0.1', 63347)", "direction": "in", "event": "connection_open", "node": "n1", "object_id": null, "peer": null, "ts": 1794740659.3751}
+{"addr": "('127.0.0.1', 63336)", "direction": "out", "event": "connection_open", "node": "n1", "object_id": null, "peer": null, "ts": 1794740659.3754}
+{"addr": "('127.0.0.1', 63334)", "direction": "out", "event": "connection_open", "node": "n2", "object_id": null, "peer": null, "ts": 1794740659.3755}
+{"addr": "('127.0.0.1', 63334)", "direction": "out", "event": "connection_open", "node": "n3", "object_id": null, "peer": null, "ts": 1794740659.3757}
+{"addr": "('127.0.0.1', 63348)", "direction": "in", "event": "connection_open", "node": "n1", "object_id": null, "peer": null, "ts": 1794740659.3758}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": null, "ts": 1794740659.4034, "type": "version"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": null, "ts": 1794740659.4038, "type": "version"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": null, "ts": 1794740659.4194, "type": "version"}
+{"code": "duplicate_connection", "event": "protocol_error", "fatal": true, "node": "n3", "object_id": null, "peer": null, "reason": "already connected", "ts": 1794740659.4195}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": null, "ts": 1794740659.4199, "type": "version"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740659.4208, "type": "verack"}
+{"direction": "out", "event": "peer_ready", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740659.4209}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": null, "ts": 1794740659.421, "type": "version"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n1", "ts": 1794740659.4549, "type": "verack"}
+{"direction": "out", "event": "peer_ready", "node": "n2", "object_id": null, "peer": "n1", "ts": 1794740659.455}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n3", "ts": 1794740659.4551, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "n1", "object_id": null, "peer": "n3", "ts": 1794740659.4552}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n2", "ts": 1794740659.4738, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "n1", "object_id": null, "peer": "n2", "ts": 1794740659.4738}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740659.474, "type": "getaddr"}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n3", "ts": 1794740659.4886, "type": "getaddr"}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n2", "ts": 1794740659.5015, "type": "getaddr"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n1", "ts": 1794740659.5107, "type": "getaddr"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740659.518, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740659.518}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n1", "ts": 1794740659.5367, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n2", "object_id": null, "peer": "n1", "ts": 1794740659.5367}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n2", "ts": 1794740659.5368, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n1", "object_id": null, "peer": "n2", "ts": 1794740659.5368}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n3", "ts": 1794740659.537, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n1", "object_id": null, "peer": "n3", "ts": 1794740659.5371}
+{"addr": "('127.0.0.1', 63349)", "direction": "in", "event": "connection_open", "node": "n3", "object_id": null, "peer": null, "ts": 1794740659.6766}
+{"addr": "('127.0.0.1', 63350)", "direction": "in", "event": "connection_open", "node": "n2", "object_id": null, "peer": null, "ts": 1794740659.6768}
+{"addr": "('127.0.0.1', 63336)", "direction": "out", "event": "connection_open", "node": "n2", "object_id": null, "peer": null, "ts": 1794740659.6768}
+{"addr": "('127.0.0.1', 63335)", "direction": "out", "event": "connection_open", "node": "n3", "object_id": null, "peer": null, "ts": 1794740659.6769}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": null, "ts": 1794740659.7052, "type": "version"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": null, "ts": 1794740659.7179, "type": "version"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": null, "ts": 1794740659.718, "type": "version"}
+{"code": "duplicate_connection", "event": "protocol_error", "fatal": true, "node": "n2", "object_id": null, "peer": null, "reason": "already connected", "ts": 1794740659.718}
+{"event": "peer_disconnected", "node": "n3", "object_id": null, "peer": "n2", "reason": "connection_ended", "ts": 1794740659.7182}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": null, "ts": 1794740659.7223, "type": "version"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740659.7447, "type": "verack"}
+{"direction": "in", "event": "peer_ready", "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740659.7447}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740659.7518, "type": "verack"}
+{"direction": "out", "event": "peer_ready", "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740659.7519}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740659.7855, "type": "getaddr"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740659.7938, "type": "getaddr"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740659.8188, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740659.8189}
+{"event": "block_mined", "node": "n0", "object_id": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "peer": null, "ts": 1794740659.8389, "txs": 0}
+{"event": "block_accepted", "height": 1, "node": "n0", "object_id": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "peer": null, "status": "extended", "tip": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "ts": 1794740659.8391}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740659.8395, "type": "addr"}
+{"count": 3, "event": "addr_received", "new": 0, "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740659.8396}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740659.8689, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n0", "requested": 1, "ts": 1794740659.869}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740659.8691, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n0", "requested": 1, "ts": 1794740659.8692}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740659.8864, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n0", "requested": 1, "ts": 1794740659.8865}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740659.8867, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n0", "requested": 1, "ts": 1794740659.8868}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740659.9023, "type": "getdata"}
+{"event": "block_sent", "node": "n0", "object_id": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "peer": "n2", "ts": 1794740659.9025}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740659.9026, "type": "getdata"}
+{"event": "block_sent", "node": "n0", "object_id": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "peer": "n1", "ts": 1794740659.9027}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740659.9029, "type": "getdata"}
+{"event": "block_sent", "node": "n0", "object_id": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "peer": "n4", "ts": 1794740659.9029}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740659.9335, "type": "block"}
+{"event": "block_accepted", "height": 1, "node": "n1", "object_id": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "peer": "n0", "status": "extended", "tip": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "ts": 1794740659.9338}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740659.9339, "type": "getdata"}
+{"event": "block_sent", "node": "n0", "object_id": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "peer": "n3", "ts": 1794740659.934}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740659.9341, "type": "block"}
+{"event": "block_accepted", "height": 1, "node": "n4", "object_id": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "peer": "n0", "status": "extended", "tip": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "ts": 1794740659.9342}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740659.9512, "type": "block"}
+{"event": "block_accepted", "height": 1, "node": "n2", "object_id": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "peer": "n0", "status": "extended", "tip": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "ts": 1794740659.9514}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740659.9713, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n1", "requested": 0, "ts": 1794740659.9713}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n4", "ts": 1794740659.9714, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n4", "requested": 0, "ts": 1794740659.9714}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740659.9868, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n4", "requested": 0, "ts": 1794740659.9868}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740659.9869, "type": "block"}
+{"event": "block_accepted", "height": 1, "node": "n3", "object_id": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "peer": "n0", "status": "extended", "tip": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "ts": 1794740659.9871}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n4", "ts": 1794740659.9872, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n4", "requested": 0, "ts": 1794740659.9873}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740659.9873, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n1", "requested": 0, "ts": 1794740659.9873}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n1", "ts": 1794740659.9874, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n1", "requested": 0, "ts": 1794740659.9874}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n2", "ts": 1794740659.9874, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n2", "requested": 0, "ts": 1794740659.9874}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740659.9874, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n2", "requested": 0, "ts": 1794740659.9875}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n2", "ts": 1794740659.9954, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n2", "requested": 0, "ts": 1794740659.9955}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n3", "ts": 1794740660.0212, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n3", "requested": 0, "ts": 1794740660.0213}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740660.0367, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n3", "requested": 0, "ts": 1794740660.0368}
+{"blocked": ["n2", "n3", "n4"], "event": "partition_set", "node": "n0", "object_id": null, "peer": null, "ts": 1794740660.0536}
+{"blocked": ["n2", "n3", "n4"], "event": "partition_set", "node": "n1", "object_id": null, "peer": null, "ts": 1794740660.0536}
+{"blocked": ["n0", "n1"], "event": "partition_set", "node": "n2", "object_id": null, "peer": null, "ts": 1794740660.0537}
+{"blocked": ["n0", "n1"], "event": "partition_set", "node": "n3", "object_id": null, "peer": null, "ts": 1794740660.0537}
+{"blocked": ["n0", "n1"], "event": "partition_set", "node": "n4", "object_id": null, "peer": null, "ts": 1794740660.0537}
+{"event": "partition_start", "groups": [["n0", "n1"], ["n2", "n3", "n4"]], "node": "sim", "object_id": null, "peer": null, "ts": 1794740660.0537}
+{"event": "tx_accepted", "fee": 1, "fee_rate": 0.00172, "node": "n0", "object_id": "61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3", "peer": null, "replaced": [], "ts": 1794740660.0544}
+{"direction": "out", "event": "drop_partition", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740660.0545, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740660.0545, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740660.0546, "type": "inv"}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740660.0847, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n0", "requested": 1, "ts": 1794740660.0848}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740660.135, "type": "getdata"}
+{"event": "tx_sent", "node": "n0", "object_id": "61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3", "peer": "n1", "ts": 1794740660.1352}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740660.1686, "type": "tx"}
+{"event": "tx_accepted", "fee": 1, "fee_rate": 0.00172, "node": "n1", "object_id": "61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3", "peer": "n0", "replaced": [], "ts": 1794740660.1697}
+{"direction": "out", "event": "drop_partition", "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740660.1698, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n1", "object_id": null, "peer": "n3", "ts": 1794740660.1698, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n1", "object_id": null, "peer": "n2", "ts": 1794740660.1698, "type": "inv"}
+{"event": "block_mined", "node": "n0", "object_id": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "peer": null, "ts": 1794740660.2694, "txs": 1}
+{"event": "block_accepted", "height": 2, "node": "n0", "object_id": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "peer": null, "status": "extended", "tip": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "ts": 1794740660.2698}
+{"direction": "out", "event": "drop_partition", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740660.2699, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740660.27, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740660.27, "type": "inv"}
+{"event": "block_mined", "node": "n2", "object_id": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "peer": null, "ts": 1794740660.2701, "txs": 0}
+{"event": "block_accepted", "height": 2, "node": "n2", "object_id": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "peer": null, "status": "extended", "tip": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "ts": 1794740660.2702}
+{"direction": "out", "event": "drop_partition", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740660.2702, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n2", "object_id": null, "peer": "n1", "ts": 1794740660.2702, "type": "inv"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n2", "ts": 1794740660.3007, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n2", "requested": 1, "ts": 1794740660.3008}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740660.3009, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n2", "requested": 1, "ts": 1794740660.3009}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740660.3216, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n0", "requested": 1, "ts": 1794740660.3217}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740660.3218, "type": "getdata"}
+{"event": "block_sent", "node": "n2", "object_id": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "peer": "n3", "ts": 1794740660.3218}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n4", "ts": 1794740660.3219, "type": "getdata"}
+{"event": "block_sent", "node": "n2", "object_id": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "peer": "n4", "ts": 1794740660.322}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740660.3525, "type": "getdata"}
+{"event": "block_sent", "node": "n0", "object_id": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "peer": "n1", "ts": 1794740660.3527}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740660.3687, "type": "block"}
+{"event": "block_accepted", "height": 2, "node": "n3", "object_id": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "peer": "n2", "status": "extended", "tip": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "ts": 1794740660.3689}
+{"direction": "out", "event": "drop_partition", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740660.369, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740660.369, "type": "inv"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n2", "ts": 1794740660.3691, "type": "block"}
+{"event": "block_accepted", "height": 2, "node": "n4", "object_id": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "peer": "n2", "status": "extended", "tip": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "ts": 1794740660.3692}
+{"direction": "out", "event": "drop_partition", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740660.3692, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740660.3692, "type": "inv"}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740660.3846, "type": "block"}
+{"event": "block_accepted", "height": 2, "node": "n1", "object_id": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "peer": "n0", "status": "extended", "tip": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "ts": 1794740660.3862}
+{"direction": "out", "event": "drop_partition", "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740660.3866, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n1", "object_id": null, "peer": "n3", "ts": 1794740660.3866, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n1", "object_id": null, "peer": "n2", "ts": 1794740660.3866, "type": "inv"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n3", "ts": 1794740660.3867, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n3", "requested": 0, "ts": 1794740660.3868}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n4", "ts": 1794740660.4168, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n4", "requested": 0, "ts": 1794740660.4169}
+{"event": "block_mined", "node": "n3", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": null, "ts": 1794740660.4968, "txs": 0}
+{"event": "block_accepted", "height": 3, "node": "n3", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": null, "status": "extended", "tip": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "ts": 1794740660.4973}
+{"direction": "out", "event": "drop_partition", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740660.4974, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740660.4975, "type": "inv"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n3", "ts": 1794740660.5311, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n3", "requested": 1, "ts": 1794740660.5313}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740660.5464, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n3", "requested": 1, "ts": 1794740660.5465}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n4", "ts": 1794740660.5622, "type": "getdata"}
+{"event": "block_sent", "node": "n3", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": "n4", "ts": 1794740660.5624}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740660.578, "type": "getdata"}
+{"event": "block_sent", "node": "n3", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": "n2", "ts": 1794740660.5782}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n3", "ts": 1794740660.6262, "type": "block"}
+{"event": "block_accepted", "height": 3, "node": "n4", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": "n3", "status": "extended", "tip": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "ts": 1794740660.6265}
+{"direction": "out", "event": "drop_partition", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740660.6265, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740660.6265, "type": "inv"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740660.6266, "type": "block"}
+{"event": "block_accepted", "height": 3, "node": "n2", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": "n3", "status": "extended", "tip": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "ts": 1794740660.6267}
+{"direction": "out", "event": "drop_partition", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740660.6268, "type": "inv"}
+{"direction": "out", "event": "drop_partition", "node": "n2", "object_id": null, "peer": "n1", "ts": 1794740660.6268, "type": "inv"}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n2", "ts": 1794740660.6768, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n2", "requested": 0, "ts": 1794740660.6769}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n4", "ts": 1794740660.6771, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n4", "requested": 0, "ts": 1794740660.6771}
+{"event": "partition_healed", "node": "n0", "object_id": null, "peer": null, "ts": 1794740660.7221}
+{"event": "partition_healed", "node": "n1", "object_id": null, "peer": null, "ts": 1794740660.7221}
+{"event": "partition_healed", "node": "n2", "object_id": null, "peer": null, "ts": 1794740660.7222}
+{"event": "partition_healed", "node": "n3", "object_id": null, "peer": null, "ts": 1794740660.7222}
+{"event": "partition_healed", "node": "n4", "object_id": null, "peer": null, "ts": 1794740660.7222}
+{"event": "partition_healed", "node": "sim", "object_id": null, "peer": null, "ts": 1794740660.7222}
+{"event": "resync", "node": "n0", "object_id": null, "peer": null, "peers": 4, "ts": 1794740660.7225}
+{"event": "resync", "node": "n1", "object_id": null, "peer": null, "peers": 4, "ts": 1794740660.7227}
+{"event": "resync", "node": "n2", "object_id": null, "peer": null, "peers": 4, "ts": 1794740660.7229}
+{"event": "resync", "node": "n3", "object_id": null, "peer": null, "peers": 4, "ts": 1794740660.7231}
+{"event": "resync", "node": "n4", "object_id": null, "peer": null, "peers": 4, "ts": 1794740660.7233}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n2", "ts": 1794740660.7391, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n2", "requested": 0, "ts": 1794740660.7395}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740660.7397, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n4", "requested": 2, "ts": 1794740660.7397}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740660.7418, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n3", "requested": 0, "ts": 1794740660.742}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n4", "ts": 1794740660.7423, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n4", "requested": 0, "ts": 1794740660.7423}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740660.7445, "type": "inv"}
+{"count": 2, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n0", "requested": 1, "ts": 1794740660.7445}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740660.7446, "type": "inv"}
+{"count": 2, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n0", "requested": 0, "ts": 1794740660.7446}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740660.7542, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n0", "object_id": null, "peer": "n3", "requested": 2, "ts": 1794740660.7543}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n4", "ts": 1794740660.7547, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n4", "requested": 0, "ts": 1794740660.7547}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n3", "ts": 1794740660.7548, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n3", "requested": 0, "ts": 1794740660.7549}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740660.7549, "type": "inv"}
+{"count": 2, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n1", "requested": 1, "ts": 1794740660.755}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740660.7552, "type": "inv"}
+{"count": 2, "event": "inv_received", "node": "n0", "object_id": null, "peer": "n1", "requested": 0, "ts": 1794740660.7552}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740660.7552, "type": "inv"}
+{"count": 2, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n0", "requested": 1, "ts": 1794740660.7553}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n2", "ts": 1794740660.7691, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n2", "requested": 0, "ts": 1794740660.7694}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740660.7698, "type": "inv"}
+{"count": 2, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n1", "requested": 0, "ts": 1794740660.7699}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740660.77, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n0", "object_id": null, "peer": "n4", "requested": 0, "ts": 1794740660.77}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740660.77, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n2", "requested": 0, "ts": 1794740660.77}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740660.7701, "type": "inv"}
+{"count": 2, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n0", "requested": 0, "ts": 1794740660.7701}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740660.7702, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n0", "object_id": null, "peer": "n2", "requested": 0, "ts": 1794740660.7702}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n1", "ts": 1794740660.7703, "type": "inv"}
+{"count": 2, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n1", "requested": 0, "ts": 1794740660.7703}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n3", "ts": 1794740660.7838, "type": "inv"}
+{"count": 3, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n3", "requested": 0, "ts": 1794740660.7839}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740660.7839, "type": "getdata"}
+{"event": "block_sent", "node": "n0", "object_id": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "peer": "n2", "ts": 1794740660.7841}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740660.8008, "type": "getdata"}
+{"event": "block_sent", "node": "n0", "object_id": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "peer": "n4", "ts": 1794740660.8011}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740660.8011, "type": "getdata"}
+{"event": "block_sent", "node": "n4", "object_id": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "peer": "n1", "ts": 1794740660.8012}
+{"event": "block_sent", "node": "n4", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": "n1", "ts": 1794740660.8013}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740660.8014, "type": "getdata"}
+{"event": "block_sent", "node": "n3", "object_id": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "peer": "n0", "ts": 1794740660.8014}
+{"event": "block_sent", "node": "n3", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": "n0", "ts": 1794740660.8015}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740660.8015, "type": "block"}
+{"event": "block_accepted", "height": 2, "node": "n2", "object_id": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "peer": "n0", "status": "side_branch", "tip": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "ts": 1794740660.8018}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n3", "ts": 1794740660.8168, "type": "getdata"}
+{"event": "block_sent", "node": "n1", "object_id": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "peer": "n3", "ts": 1794740660.8172}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740660.8357, "type": "block"}
+{"event": "block_accepted", "height": 2, "node": "n4", "object_id": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "peer": "n0", "status": "side_branch", "tip": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "ts": 1794740660.8361}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740660.8362, "type": "block"}
+{"event": "block_accepted", "height": 2, "node": "n0", "object_id": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "peer": "n3", "status": "side_branch", "tip": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "ts": 1794740660.8363}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740660.8363, "type": "block"}
+{"event": "block_accepted", "height": 2, "node": "n1", "object_id": "08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "peer": "n4", "status": "side_branch", "tip": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "ts": 1794740660.8364}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740660.8507, "type": "block"}
+{"event": "block_accepted", "height": 2, "node": "n3", "object_id": "08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c", "peer": "n1", "status": "side_branch", "tip": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "ts": 1794740660.8511}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740660.8512, "type": "block"}
+{"event": "block_accepted", "height": 3, "node": "n0", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": "n3", "status": "reorganized", "tip": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "ts": 1794740660.8514}
+{"connected": ["08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f"], "disconnected": ["08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c"], "event": "reorg", "fork": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "node": "n0", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": null, "returned_to_mempool": ["61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3"], "ts": 1794740660.8518}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n4", "ts": 1794740660.867, "type": "block"}
+{"event": "block_accepted", "height": 3, "node": "n1", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": "n4", "status": "reorganized", "tip": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "ts": 1794740660.8674}
+{"connected": ["08825a39007a83582adb5fa41d569dbb8b3c9b1adec448539cef755b3e34532d", "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f"], "disconnected": ["08295b4f536efb89636096edd2cfcc164655a1ff67a89f5d7cc33b6f661eca8c"], "event": "reorg", "fork": "0e4d101a10ee0a24142ea86fe13516fca2f208d9c69dbf167fbfc49b11475a04", "node": "n1", "object_id": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "peer": null, "returned_to_mempool": ["61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3"], "ts": 1794740660.8678}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740660.8681, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n0", "requested": 1, "ts": 1794740660.8681}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740660.8832, "type": "inv"}
+{"count": 2, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n0", "requested": 0, "ts": 1794740660.8833}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740660.8834, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n0", "requested": 1, "ts": 1794740660.8834}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n1", "ts": 1794740660.8836, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n4", "object_id": null, "peer": "n1", "requested": 0, "ts": 1794740660.8837}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740660.8983, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n1", "requested": 1, "ts": 1794740660.8984}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740660.8986, "type": "getdata"}
+{"event": "tx_sent", "node": "n0", "object_id": "61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3", "peer": "n4", "ts": 1794740660.8987}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740660.8988, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n0", "requested": 0, "ts": 1794740660.8988}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740660.8988, "type": "inv"}
+{"count": 2, "event": "inv_received", "node": "n0", "object_id": null, "peer": "n1", "requested": 0, "ts": 1794740660.899}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n1", "ts": 1794740660.9142, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n1", "requested": 0, "ts": 1794740660.9143}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740660.9325, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n1", "object_id": null, "peer": "n0", "requested": 0, "ts": 1794740660.9325}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740660.9326, "type": "tx"}
+{"event": "tx_accepted", "fee": 1, "fee_rate": 0.00172, "node": "n4", "object_id": "61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3", "peer": "n0", "replaced": [], "ts": 1794740660.933}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740660.9331, "type": "ping"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740660.9331, "type": "ping"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740660.9332, "type": "ping"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740660.9332, "type": "getdata"}
+{"event": "tx_sent", "node": "n0", "object_id": "61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3", "peer": "n2", "ts": 1794740660.9333}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740660.9334, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n0", "object_id": null, "peer": "n1", "requested": 0, "ts": 1794740660.9334}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n3", "ts": 1794740660.9526, "type": "getdata"}
+{"event": "tx_sent", "node": "n1", "object_id": "61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3", "peer": "n3", "ts": 1794740660.9528}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n4", "ts": 1794740660.9529, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n4", "requested": 0, "ts": 1794740660.9529}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n3", "ts": 1794740660.953, "type": "pong"}
+{"event": "pong", "node": "n0", "object_id": null, "peer": "n3", "rtt": 0.0391, "ts": 1794740660.953}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740660.9531, "type": "ping"}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740660.9688, "type": "ping"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740660.9689, "type": "ping"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740660.969, "type": "ping"}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n4", "ts": 1794740660.969, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n4", "requested": 0, "ts": 1794740660.9691}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740660.985, "type": "ping"}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n2", "ts": 1794740660.9852, "type": "pong"}
+{"event": "pong", "node": "n0", "object_id": null, "peer": "n2", "rtt": 0.0713, "ts": 1794740660.9852}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n0", "ts": 1794740660.9853, "type": "pong"}
+{"event": "pong", "node": "n3", "object_id": null, "peer": "n0", "rtt": 0.0712, "ts": 1794740660.9853}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n1", "ts": 1794740661.0007, "type": "tx"}
+{"event": "tx_accepted", "fee": 1, "fee_rate": 0.00172, "node": "n3", "object_id": "61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3", "peer": "n1", "replaced": [], "ts": 1794740661.0013}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n0", "ts": 1794740661.0168, "type": "tx"}
+{"event": "tx_accepted", "fee": 1, "fee_rate": 0.00172, "node": "n2", "object_id": "61dafeedf4d9a7b54d51827f43207f57f0d214a2ebfcc02254fa01d239ed56d3", "peer": "n0", "replaced": [], "ts": 1794740661.0173}
+{"event": "msg_in", "node": "n1", "object_id": null, "peer": "n0", "ts": 1794740661.0174, "type": "pong"}
+{"event": "pong", "node": "n1", "object_id": null, "peer": "n0", "rtt": 0.1034, "ts": 1794740661.0174}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n1", "ts": 1794740661.0327, "type": "pong"}
+{"event": "pong", "node": "n0", "object_id": null, "peer": "n1", "rtt": 0.1189, "ts": 1794740661.0328}
+{"event": "msg_in", "node": "n0", "object_id": null, "peer": "n4", "ts": 1794740661.0329, "type": "pong"}
+{"event": "pong", "node": "n0", "object_id": null, "peer": "n4", "rtt": 0.119, "ts": 1794740661.0329}
+{"event": "msg_in", "node": "n3", "object_id": null, "peer": "n2", "ts": 1794740661.0329, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n3", "object_id": null, "peer": "n2", "requested": 0, "ts": 1794740661.0329}
+{"event": "msg_in", "node": "n4", "object_id": null, "peer": "n0", "ts": 1794740661.033, "type": "pong"}
+{"event": "pong", "node": "n4", "object_id": null, "peer": "n0", "rtt": 0.1189, "ts": 1794740661.033}
+{"event": "msg_in", "node": "n2", "object_id": null, "peer": "n3", "ts": 1794740661.0495, "type": "inv"}
+{"count": 1, "event": "inv_received", "node": "n2", "object_id": null, "peer": "n3", "requested": 0, "ts": 1794740661.0496}
+{"event": "experiment_done", "height": 3, "node": "sim", "object_id": null, "peer": null, "reorgs": 2, "tip": "06736715ee9151bbb18547eb4c6040b8957672d17a972dccd570357c29a1cf2f", "ts": 1794740661.0655, "tx_back_in_all_mempools": true}
+{"event": "peer_disconnected", "node": "n0", "object_id": null, "peer": "n4", "reason": "node_stopping", "ts": 1794740661.0657}
+{"event": "peer_disconnected", "node": "n0", "object_id": null, "peer": "n1", "reason": "node_stopping", "ts": 1794740661.0657}
+{"event": "peer_disconnected", "node": "n0", "object_id": null, "peer": "n3", "reason": "node_stopping", "ts": 1794740661.0658}
+{"event": "peer_disconnected", "node": "n0", "object_id": null, "peer": "n2", "reason": "node_stopping", "ts": 1794740661.0658}
+{"event": "node_stopped", "node": "n0", "object_id": null, "peer": null, "ts": 1794740661.0664}
+{"event": "peer_disconnected", "node": "n1", "object_id": null, "peer": "n0", "reason": "node_stopping", "ts": 1794740661.0665}
+{"event": "peer_disconnected", "node": "n1", "object_id": null, "peer": "n4", "reason": "node_stopping", "ts": 1794740661.0666}
+{"event": "peer_disconnected", "node": "n1", "object_id": null, "peer": "n3", "reason": "node_stopping", "ts": 1794740661.0666}
+{"event": "peer_disconnected", "node": "n1", "object_id": null, "peer": "n2", "reason": "node_stopping", "ts": 1794740661.0666}
+{"event": "peer_disconnected", "node": "n4", "object_id": null, "peer": "n0", "reason": "connection_ended", "ts": 1794740661.0667}
+{"event": "peer_disconnected", "node": "n3", "object_id": null, "peer": "n0", "reason": "connection_ended", "ts": 1794740661.0668}
+{"event": "peer_disconnected", "node": "n2", "object_id": null, "peer": "n0", "reason": "connection_ended", "ts": 1794740661.0668}
+{"event": "node_stopped", "node": "n1", "object_id": null, "peer": null, "ts": 1794740661.0676}
+{"event": "peer_disconnected", "node": "n2", "object_id": null, "peer": "n4", "reason": "node_stopping", "ts": 1794740661.0676}
+{"event": "peer_disconnected", "node": "n2", "object_id": null, "peer": "n1", "reason": "node_stopping", "ts": 1794740661.0677}
+{"event": "peer_disconnected", "node": "n2", "object_id": null, "peer": "n3", "reason": "node_stopping", "ts": 1794740661.0677}
+{"event": "peer_disconnected", "node": "n4", "object_id": null, "peer": "n1", "reason": "connection_ended", "ts": 1794740661.0678}
+{"event": "peer_disconnected", "node": "n3", "object_id": null, "peer": "n1", "reason": "connection_ended", "ts": 1794740661.0679}
+{"event": "node_stopped", "node": "n2", "object_id": null, "peer": null, "ts": 1794740661.0682}
+{"event": "peer_disconnected", "node": "n3", "object_id": null, "peer": "n4", "reason": "node_stopping", "ts": 1794740661.0683}
+{"event": "peer_disconnected", "node": "n3", "object_id": null, "peer": "n2", "reason": "node_stopping", "ts": 1794740661.0683}
+{"event": "peer_disconnected", "node": "n4", "object_id": null, "peer": "n2", "reason": "connection_ended", "ts": 1794740661.0683}
+{"event": "node_stopped", "node": "n3", "object_id": null, "peer": null, "ts": 1794740661.0685}
+{"event": "peer_disconnected", "node": "n4", "object_id": null, "peer": "n3", "reason": "node_stopping", "ts": 1794740661.0686}
+{"event": "node_stopped", "node": "n4", "object_id": null, "peer": null, "ts": 1794740661.0689}
