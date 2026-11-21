@@ -6,6 +6,7 @@
 **Course:** Blockchain Engineering  
 **Institution:** IIT Patna  
 **Academic Session:** July–December 2026
+**Demo Video:** https://youtu.be/A_tDITUGCsA
 
 ---
 
@@ -368,7 +369,7 @@ For detailed benchmark results, refer to [`PERFORMANCE.md`](PERFORMANCE.md).
 
 ## 16. Demonstration Video
 
-**YouTube Demo:** [Watch Assignment 4 Demonstration](<ASSIGNMENT_04_VIDEO_LINK>)
+**YouTube Demo:** https://youtu.be/A_tDITUGCsA
 
 The demonstration covers the project structure, UTXO ledger initialization, wallet operations, transaction creation, signature verification, transaction validation, double-spend prevention, ledger snapshots, automated tests, and performance benchmarking.
 
