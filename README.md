@@ -7,15 +7,15 @@ This repository contains my assignments for the Blockchain Engineering course at
 
 ## Assignment Overview
 
-| Folder | Assignment | Implementation | Demo Video |
-|---|---|---|---|
-| `assign01/` | Bytes, Hashes, and Reproducible Data | `hashlab` | [Watch Video](<ASSIGNMENT_01_VIDEO_LINK>) |
-| `assign02/` | Merkle Trees and Proofs of Inclusion | — | [Watch Video](<ASSIGNMENT_02_VIDEO_LINK>) |
-| `assign03/` | Keys, Addresses, and Signed Transactions | `walletlab` | [Watch Video](<ASSIGNMENT_03_VIDEO_LINK>) |
-| `assign04/` | To be added | — | To be added |
-| `assign05/` | To be added | — | To be added |
-| `assign06/` | To be added | — | To be added |
-| `assign07/` | To be added | — | To be added |
+| Folder | Assignment | Demo Video |
+|---|---|---|
+| `assign01/` | Bytes, Hashes, and Reproducible Data | https://youtu.be/40wSlgal36w |
+| `assign02/` | Merkle Trees and Proofs of Inclusion | https://youtu.be/uI-waxUfPj8 |
+| `assign03/` | Keys, Addresses, and Signed Transactions | https://youtu.be/hZrmyZbqbFU |
+| `assign04/` | A UTXO Ledger and Transaction Validator | https://youtu.be/A_tDITUGCsA |
+| `assign05/` | Blocks, Proof of Work, Forks and Reorganisation | https://youtu.be/_4vzZkxGIZM |
+| `assign06/` | A Peer-to-Peer Mempool and Block Relay Network | https://youtu.be/24Qbd2VnBdo |
+| `assign07/` | Solidity Escrow: From Specification to Deployment | https://youtu.be/TvLmJpw08cg |
 
 ## Repository Structure
 
