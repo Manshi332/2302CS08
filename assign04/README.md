@@ -6,6 +6,7 @@
 **Course:** Blockchain Engineering  
 **Institution:** IIT Patna  
 **Academic Session:** July–December 2026
+
 **Demo Video:** https://youtu.be/A_tDITUGCsA
 
 ---
