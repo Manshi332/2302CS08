@@ -598,17 +598,6 @@ Blockchain data and transaction files can become very large.
 
 Streaming allows data to be processed in chunks without loading the entire file into memory, making the implementation more memory-efficient.
 
-## 9. Submission Checklist
-
-- [ ] Assignment folder is named `assign01/` and placed at the root of the private roll-number repository.
-- [ ] Source code and all required project files are included.
-- [ ] `README.md` contains the final project documentation.
-- [ ] All 44 automated tests pass.
-- [ ] Example files and verification script are included.
-- [ ] Collaborator `blockchain.iitp.20261@atomicmail.io` has been added.
-- [ ] Demonstration video has been uploaded to YouTube as **Unlisted**.
-- [ ] YouTube link has been added to this README.
-- [ ] Video link has been submitted through the official MS Form: https://forms.cloud.microsoft/r/huBck9hkD7
 
 ---
 
