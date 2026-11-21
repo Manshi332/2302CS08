@@ -4,6 +4,8 @@
 
 **Roll Number:** 2302CS08
 
+**Demo Video:** https://youtu.be/24Qbd2VnBdo
+
 ## 1. Overview
 
 This assignment focuses on implementing a peer-to-peer (P2P) network that enables multiple blockchain nodes to communicate over localhost TCP connections using Python's `asyncio` framework.
@@ -278,7 +280,7 @@ assign06/
 
 ## 14. Demonstration Video
 
-**YouTube Demo:** [Watch Assignment 6 Demonstration](<ASSIGNMENT_06_VIDEO_LINK>)
+**YouTube Demo:** https://youtu.be/24Qbd2VnBdo
 
 The demonstration covers the project structure, P2P node communication, peer discovery, transaction and block relay, test execution, network partition simulation, and recovery through chain convergence.
 
