@@ -8,7 +8,7 @@
 **Department:** Computer Science and Engineering, IIT Patna  
 **Academic Session:** July–December 2026
 
-**Demo Video:** [Watch Assignment 3 Demonstration](<ASSIGNMENT_03_VIDEO_LINK>)
+**Demo Video:** https://youtu.be/hZrmyZbqbFU
 
 ---
 
@@ -481,7 +481,7 @@ For additional security details, refer to [`docs/THREAT_MODEL.md`](docs/THREAT_M
 
 ## 12. Demonstration Video
 
-**YouTube Demo:** [Watch Assignment 3 Demonstration](<ASSIGNMENT_03_VIDEO_LINK>)
+**YouTube Demo:** https://youtu.be/hZrmyZbqbFU
 
 The demonstration covers project structure, Ed25519 key generation, wallet address derivation, transaction preparation, digital signing, signature verification, tampering detection, replay protection, canonical serialization, and automated testing.
 
