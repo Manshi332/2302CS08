@@ -8,8 +8,7 @@
 **Department:** Computer Science and Engineering, IIT Patna  
 **Academic Session:** July–December 2026
 
-**Demo Video:** [Watch Assignment 2 Demonstration](<ASSIGNMENT_02_VIDEO_LINK>)
-
+**Demo Video:**  https://youtu.be/uI-waxUfPj8
 ---
 
 ## 1. Overview
@@ -591,29 +590,6 @@ python scripts/gen_vectors.py
 | Proof-path diagram | `docs/proof_path_5_tx.svg`, `docs/proof_path_5_tx.png` |
 | Performance report | `PERFORMANCE.md` |
 
-## 14. Demonstration Video Checklist
-
-The demonstration video should include:
-
-1. Project setup and successful execution of `pytest -q`.
-2. Explanation of the Merkle Tree specification, domain separation, and odd-node promotion.
-3. Merkle root calculation using `merkle root`.
-4. Proof generation using `merkle prove --index 2`.
-5. Explanation of the three sibling hashes and their directions using the proof-path diagram.
-6. Successful proof verification using `merkle verify`.
-7. Demonstration of an invalid proof by changing the leaf data.
-8. Execution of malformed proof examples from `examples/bad_proofs/`.
-9. Performance benchmarking using `merkle bench`.
-10. Explanation of why the tree size must be pinned using `--tree-size`.
-
-## 15. Submission Checklist
-
-- [ ] Assignment folder is named `assign02/` and placed at the root of the private roll-number repository.
-- [ ] All source code, tests, examples, vectors, documentation, and performance reports are included.
-- [ ] Collaborator `blockchain.iitp.20261@atomicmail.io` has been added.
-- [ ] Demonstration video has been uploaded to YouTube as **Unlisted**.
-- [ ] YouTube video link has been added to this README.
-- [ ] Video link has been submitted through the official MS Form: https://forms.cloud.microsoft/r/huBck9hkD7
 
 ---
 
