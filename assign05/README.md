@@ -7,6 +7,7 @@
 **Institution:** IIT Patna  
 **Academic Session:** July–December 2026
 
+**Academic Session:** https://youtu.be/_4vzZkxGIZM
 ---
 
 ## 1. Overview
@@ -375,7 +376,7 @@ The following cases were successfully verified:
 
 ## 14. Demonstration Video
 
-**YouTube Demo:** [Watch Assignment 5 Demonstration](<ASSIGNMENT_05_VIDEO_LINK>)
+**YouTube Demo:** https://youtu.be/_4vzZkxGIZM
 
 The demonstration covers the project structure, blockchain initialization, wallet addresses, transaction creation, block mining, Proof of Work, fork simulation, chain reorganisation, acceptance checks, and mining benchmarks.
 
