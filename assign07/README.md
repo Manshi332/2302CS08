@@ -4,6 +4,7 @@
 
 **Roll Number:** 2302CS08
 
+**Demo Video:** https://youtu.be/TvLmJpw08cg
 ## 1. Overview
 
 This assignment focuses on designing, implementing, testing, and deploying a secure escrow smart contract using Solidity and Foundry.
@@ -187,7 +188,7 @@ The project includes:
 
 ## 11. Demonstration Video
 
-**YouTube Demo:** [Watch Assignment 7 Demonstration](<ASSIGNMENT_07_VIDEO_LINK>)
+**YouTube Demo:** https://youtu.be/TvLmJpw08cg
 
 The demonstration video covers the project structure, smart contract implementation, test execution, local deployment, and escrow transaction flows.
 
