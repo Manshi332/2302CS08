@@ -7,7 +7,7 @@
 **Institution:** IIT Patna  
 **Academic Session:** July–December 2026
 
-**Academic Session:** https://youtu.be/_4vzZkxGIZM
+**Demo Video:** https://youtu.be/_4vzZkxGIZM
 ---
 
 ## 1. Overview
