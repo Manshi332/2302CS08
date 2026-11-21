@@ -9,7 +9,7 @@
 **Department:** Computer Science and Engineering, IIT Patna  
 **Academic Session:** July–December 2026
 
-**Demo Video:** [Watch Assignment 1 Demonstration](<ASSIGNMENT_01_VIDEO_LINK>)
+**Demo Video:** [Watch Assignment 1 Demonstration](<[ASSIGNMENT_01_VIDEO_LINK](https://youtu.be/40wSlgal36w)>)
 
 ---
 
